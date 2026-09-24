@@ -37,7 +37,8 @@ export const workshopOneSlides: Slide[] = [
   /* --------------------------------------------------------- */
   /* Slide 2 — Ice Breaking                                    */
   /* --------------------------------------------------------- */
-  {
+ /*
+   {
     id: 2,
     type: 'poll',
     title: 'Ice Breaking',
@@ -52,6 +53,29 @@ export const workshopOneSlides: Slide[] = [
     footnote:
       'Research is not a single-track path — every motivation is valid and often they overlap.',
   },
+  */
+
+  /* --------------------------------------------------------- */
+  /* Slide 2 — Ice Breaking (LIVE POLL)                        */
+  /* --------------------------------------------------------- */
+  {
+    id: 2,
+    type: 'poll-live',
+    title: 'Ice Breaking',
+    pollSlug: 'ice-breaker-1',
+    liveEnabled: true,
+    fallbackQuestion: 'Why do you want to learn Research?',
+    fallbackOptions: [
+      { id: 'opt1', label: 'Scholarship',    weight: 30 },
+      { id: 'opt2', label: 'Higher Study',   weight: 25 },
+      { id: 'opt3', label: 'Publication',    weight: 20 },
+      { id: 'opt4', label: 'Career Growth',  weight: 15 },
+      { id: 'opt5', label: 'Pure Curiosity', weight: 10 },
+    ],
+    footnote:
+      'Research is not a single-track path — every motivation is valid and often they overlap.',
+  },
+
 
   /* --------------------------------------------------------- */
   /* Slide 3 — What is Research?                               */

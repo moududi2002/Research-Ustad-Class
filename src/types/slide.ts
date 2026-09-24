@@ -9,6 +9,7 @@
 export type Slide =
   | CoverSlide
   | PollSlide
+  | PollLiveSlide     
   | FlowSlide
   | ChecklistSlide
   | ImageCardsSlide
@@ -330,4 +331,37 @@ export interface ClosingSlide {
   website?: string;
   logo?: string;
   qrImage?: string;
+}
+
+export interface PollLiveSlide {
+  id: number;
+  type: 'poll-live';
+
+  /** Fallback title (used when backend is unreachable) */
+  title: string;
+
+  /** Fallback question — will be replaced by backend if live */
+  fallbackQuestion: string;
+
+  /** Fallback options — will be replaced by backend if live */
+  fallbackOptions: { id: string; label: string; weight: number }[];
+
+  /** Backend poll slug, e.g. "ice-breaker-1" */
+  pollSlug: string;
+
+  /**
+   * Optional: vote page base URL.
+   * If not set, uses NEXT_PUBLIC_VOTE_BASE_URL env or falls back to
+   * `{window.location.origin}/vote`.
+   */
+  voteBaseUrl?: string;
+
+  /** Optional fallback footnote */
+  footnote?: string;
+
+  /**
+   * If false, this slide never tries to connect — always static.
+   * Useful for offline talks.
+   */
+  liveEnabled: boolean;
 }

@@ -22,6 +22,7 @@ import EcosystemSlide from '@/components/slides/EcosystemSlide';
 import AchievementCardsSlide from '@/components/slides/AchievementCardsSlide';
 import RoadmapSlide from '@/components/slides/RoadmapSlide';
 import ClosingSlide from '@/components/slides/ClosingSlide';
+import PollLiveSlide from '@/components/slides/PollLiveSlide';
 
 interface Props {
   slide: Slide;
@@ -33,6 +34,8 @@ export default function SlideRenderer({ slide }: Props) {
       return <CoverSlide slide={slide} />;
     case 'poll':
       return <PollSlide slide={slide} />;
+    case 'poll-live':
+    return <PollLiveSlide slide={slide} />; 
     case 'flow':
       return <FlowSlide slide={slide} />;
     case 'checklist':
@@ -71,6 +74,7 @@ export default function SlideRenderer({ slide }: Props) {
       return <RoadmapSlide slide={slide} />;
     case 'closing':
       return <ClosingSlide slide={slide} />;
+    
 
     /* ------- Safety fallback (should never happen with typed slides) ------- */
     default: {
