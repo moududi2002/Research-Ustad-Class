@@ -13,6 +13,15 @@ import ChartSlide from '@/components/slides/ChartSlide';
 import ComparisonSlide from '@/components/slides/ComparisonSlide';
 import MythRealitySlide from '@/components/slides/MythRealitySlide';
 import BarrierSlide from '@/components/slides/BarrierSlide';
+import MinimalSetupSlide from '@/components/slides/MinimalSetupSlide';
+import LogoCardsSlide from '@/components/slides/LogoCardsSlide';
+import TimelineSlide from '@/components/slides/TimelineSlide';
+import NumberedListSlide from '@/components/slides/NumberedListSlide';
+import WarningCardsSlide from '@/components/slides/WarningCardsSlide';
+import EcosystemSlide from '@/components/slides/EcosystemSlide';
+import AchievementCardsSlide from '@/components/slides/AchievementCardsSlide';
+import RoadmapSlide from '@/components/slides/RoadmapSlide';
+import ClosingSlide from '@/components/slides/ClosingSlide';
 
 interface Props {
   slide: Slide;
@@ -44,23 +53,30 @@ export default function SlideRenderer({ slide }: Props) {
       return <MythRealitySlide slide={slide} />;
     case 'barrier':
       return <BarrierSlide slide={slide} />;
+    case 'minimal-setup':
+      return <MinimalSetupSlide slide={slide} />;
+    case 'logo-cards':
+      return <LogoCardsSlide slide={slide} />;
+    case 'timeline':
+      return <TimelineSlide slide={slide} />;
+    case 'numbered-list':
+      return <NumberedListSlide slide={slide} />;
+    case 'warning-cards':
+      return <WarningCardsSlide slide={slide} />;
+    case 'ecosystem':
+      return <EcosystemSlide slide={slide} />;
+    case 'achievement-cards':
+      return <AchievementCardsSlide slide={slide} />;
+    case 'roadmap':
+      return <RoadmapSlide slide={slide} />;
+    case 'closing':
+      return <ClosingSlide slide={slide} />;
 
-    /* ------- Not yet implemented ------- */
-    default:
-      return (
-        <div className="mx-auto flex h-full w-full max-w-5xl flex-col justify-center px-6 py-16 sm:px-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
-            Slide {slide.id} · {slide.type}
-          </p>
-          {'title' in slide && (
-            <h2 className="mt-4 font-serif text-3xl font-medium leading-tight text-foreground sm:text-4xl lg:text-5xl">
-              {slide.title}
-            </h2>
-          )}
-          <p className="mt-6 text-sm text-foreground-subtle">
-            (Renderer coming in a later step)
-          </p>
-        </div>
-      );
+    /* ------- Safety fallback (should never happen with typed slides) ------- */
+    default: {
+      const _exhaustive: never = slide;
+      void _exhaustive;
+      return null;
+    }
   }
 }

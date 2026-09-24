@@ -62,7 +62,7 @@ function SideCard({ side, index }: SideCardProps) {
         'rounded-2xl border bg-surface p-6 shadow-sm',
         isHighlight
           ? 'border-accent shadow-md ring-1 ring-accent/20'
-          : 'border-border',
+          : 'border-border/70',
       )}
     >
       <div className="flex items-center justify-between">

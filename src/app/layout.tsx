@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     template: '%s | Research Ustad Classes',
   },
   description:
-    'A modern, web-based educational presentation platform by Research Ustad Classes — replacing traditional slides with fast, shareable, and elegant web presentations.',
+    'A modern, web-based educational presentation platform by Research Ustad Classes — replacing traditional slides with fast, shareable and elegant web presentations.',
   applicationName: 'Research Ustad Classes',
   authors: [{ name: 'Research Ustad Classes' }],
   keywords: [

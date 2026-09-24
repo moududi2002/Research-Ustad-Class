@@ -26,7 +26,7 @@ export default function Header() {
         >
           <span className="relative flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border bg-surface shadow-sm">
             {/* Fallback icon — shows if RU_logo.png is missing */}
-            <FiBookOpen className="h-5 w-5 text-accent" aria-hidden />
+            
             <Image
               src="/RU_logo.png"
               alt="Research Ustad Classes logo"

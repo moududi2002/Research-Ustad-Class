@@ -16,7 +16,7 @@ export default function Footer() {
           </h3>
           <p className="mt-2 text-sm leading-relaxed text-foreground-muted">
             Modern, web-based educational presentations for researchers,
-            students, and educators — fast, shareable, and easy to read on any
+            students and educators — fast, shareable and easy to read on any
             device.
           </p>
         </div>
@@ -46,12 +46,12 @@ export default function Footer() {
             Contact
           </h4>
           <a
-            href="mailto:researchustad@example.com"
+            href="mailto:info@researchustad.org"
             className="text-foreground-muted transition-colors hover:text-accent"
           >
-            researchustad@example.com
+            info@researchustad.org
           </a>
-          <span className="text-foreground-subtle">www.researchustad.com</span>
+          <span className="text-foreground-subtle"><a href="https://researchustad.org" target='_blank'>www.researchustad.org</a> </span>
         </div>
       </div>
 
@@ -60,9 +60,7 @@ export default function Footer() {
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 py-4 text-xs text-foreground-subtle sm:flex-row sm:px-6 lg:px-8">
           <p>© {year} Research Ustad Classes. All rights reserved.</p>
           <p className="flex items-center gap-1.5">
-            Built with
-            <FiHeart className="h-3 w-3 text-accent" aria-hidden />
-            for learners
+           <a href="https://researchustad.org" target='_blank'>Developed by RU IT Team </a> 
           </p>
         </div>
       </div>

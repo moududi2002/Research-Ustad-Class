@@ -6,7 +6,7 @@ const points = [
   {
     icon: FiBookOpen,
     title: 'Academic tone',
-    body: 'Content written with clarity and rigor — suitable for classrooms, seminars, and self-study.',
+    body: 'Content written with clarity and rigor — suitable for classrooms, seminars and self-study.',
   },
   {
     icon: FiGlobe,
@@ -33,7 +33,7 @@ export default function AboutSection() {
           </h2>
           <p className="mt-4 text-base leading-relaxed text-foreground-muted">
             Research Ustad Classes builds modern, web-native presentations for
-            researchers, teachers, and students. Simple, fast, and readable on
+            researchers, teachers and students. Simple, fast and readable on
             any screen — because good teaching deserves good presentation.
           </p>
         </div>

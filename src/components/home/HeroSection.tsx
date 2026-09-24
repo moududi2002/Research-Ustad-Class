@@ -42,7 +42,7 @@ export default function HeroSection() {
           className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-foreground-muted sm:text-lg"
         >
           Fast, elegant, shareable slide decks — replacing traditional
-          PowerPoint with the open web. Designed for researchers, teachers,
+          PowerPoint with the open web. Designed for researchers, teachers
           and students who care about clarity.
         </motion.p>
 

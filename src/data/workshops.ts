@@ -18,7 +18,7 @@ export const workshops: WorkshopCard[] = [
     slug: 'workshop-one',
     title: 'Workshop One',
     subtitle:
-      'Research: What, Why, and Its Importance in Higher Study',
+      'Research: What, Why and Its Importance in Higher Study',
     date: '2025',
     duration: '60 Minutes',
     level: 'Beginner',

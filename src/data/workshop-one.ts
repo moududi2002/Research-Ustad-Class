@@ -4,12 +4,12 @@ import type { Slide } from '@/types/slide';
 
 /* =========================================================
    WORKSHOP ONE — Part 1 (Slides 1–15)
-   "Research: What, Why, and Its Importance in Higher Study"
+   "Research: What, Why and Its Importance in Higher Study"
    ========================================================= */
 
 export const workshopOneMeta = {
   slug: 'workshop-one',
-  title: 'Research: What, Why, and Its Importance in Higher Study',
+  title: 'Research: What, Why and Its Importance in Higher Study',
   subtitle: 'Workshop Part 1 — A 30-Minute Academic Session',
   date: '2025',
   instructor: 'Research Ustad Classes',
@@ -25,7 +25,7 @@ export const workshopOneSlides: Slide[] = [
   {
     id: 1,
     type: 'cover',
-    title: 'Research: What, Why, and Its Importance in Higher Study',
+    title: 'Research: What, Why and Its Importance in Higher Study',
     subtitle: 'Workshop Part 1 — A 30-Minute Academic Session',
     speaker: 'Research Ustad Classes',
     date: '2025',
@@ -61,10 +61,10 @@ export const workshopOneSlides: Slide[] = [
     type: 'flow',
     title: 'What is Research?',
     definition:
-      'Research is a systematic process of discovering new knowledge, validating ideas, and solving problems through evidence-based inquiry.',
+      'Research is a systematic process of discovering new knowledge, validating ideas and solving problems through evidence-based inquiry.',
     steps: ['Question', 'Investigation', 'Analysis', 'Knowledge'],
     caption:
-      'A good research question is narrow, answerable, and meaningful — everything else follows.',
+      'A good research question is narrow, answerable and meaningful — everything else follows.',
   },
 
   /* --------------------------------------------------------- */
@@ -159,7 +159,7 @@ export const workshopOneSlides: Slide[] = [
       'Publication',
     ],
     caption:
-      'Publication is not the end — it feeds back into the next question, and the cycle continues.',
+      'Publication is not the end — it feeds back into the next question and the cycle continues.',
   },
 
   /* --------------------------------------------------------- */
@@ -306,7 +306,7 @@ export const workshopOneSlides: Slide[] = [
       'You need prior connections',
     ],
     reality:
-      'You need consistency, curiosity, and the discipline to read, replicate, and improve — again and again.',
+      'You need consistency, curiosity and the discipline to read, replicate and improve — again and again.',
   },
 
   /* --------------------------------------------------------- */
@@ -324,7 +324,7 @@ export const workshopOneSlides: Slide[] = [
       'Consistency beats natural talent in the long run',
     ],
     footnote:
-      'Part 2 will show you exactly how to start — with zero lab, zero funding, and only a laptop.',
+      'Part 2 will show you exactly how to start — with zero lab, zero funding and only a laptop.',
   },
 ];
 
@@ -393,12 +393,12 @@ export const workshopOneSlidesPart2: Slide[] = [
     cards: [
       {
         name: 'Google Scholar',
-        description: 'Search peer-reviewed papers, theses, and citations across disciplines.',
+        description: 'Search peer-reviewed papers, theses and citations across disciplines.',
         url: 'https://scholar.google.com',
       },
       {
         name: 'arXiv',
-        description: 'Open-access preprints in physics, mathematics, CS, and more.',
+        description: 'Open-access preprints in physics, mathematics, CS and more.',
         url: 'https://arxiv.org',
       },
       {
@@ -413,12 +413,12 @@ export const workshopOneSlidesPart2: Slide[] = [
       },
       {
         name: 'Kaggle',
-        description: 'Datasets, notebooks, and community competitions for applied research.',
+        description: 'Datasets, notebooks and community competitions for applied research.',
         url: 'https://www.kaggle.com',
       },
       {
         name: 'GitHub',
-        description: 'Version control, open-source codebases, and collaborative tooling.',
+        description: 'Version control, open-source codebases and collaborative tooling.',
         url: 'https://github.com',
       },
     ],
@@ -434,7 +434,7 @@ export const workshopOneSlidesPart2: Slide[] = [
     title: 'Your Learning Roadmap',
     subtitle: 'A five-stage path from beginner to first publication.',
     steps: [
-      { label: 'Learn Basics',   caption: 'Python, statistics, and domain fundamentals' },
+      { label: 'Learn Basics',   caption: 'Python, statistics and domain fundamentals' },
       { label: 'Read Papers',    caption: 'Start with survey papers, then specific works' },
       { label: 'Replicate',      caption: 'Reproduce results from an existing paper' },
       { label: 'Improve',        caption: 'Modify the method, dataset, or evaluation' },
@@ -454,7 +454,7 @@ export const workshopOneSlidesPart2: Slide[] = [
     items: [
       {
         title: 'Abstract',
-        description: 'Understand the problem, the claimed contribution, and the result.',
+        description: 'Understand the problem, the claimed contribution and the result.',
       },
       {
         title: 'Figures & Tables',
@@ -482,7 +482,7 @@ export const workshopOneSlidesPart2: Slide[] = [
     id: 21,
     type: 'logo-cards',
     title: 'Free Datasets You Can Start With Today',
-    subtitle: 'Real datasets used in published research across ML, healthcare, and engineering.',
+    subtitle: 'Real datasets used in published research across ML, healthcare and engineering.',
     cards: [
       {
         name: 'Kaggle Datasets',
@@ -511,7 +511,7 @@ export const workshopOneSlidesPart2: Slide[] = [
       },
     ],
     footnote:
-      'Pick one dataset, understand it deeply, and build something small — that is a project.',
+      'Pick one dataset, understand it deeply and build something small — that is a project.',
   },
 
   /* --------------------------------------------------------- */
@@ -521,7 +521,7 @@ export const workshopOneSlidesPart2: Slide[] = [
     id: 22,
     type: 'logo-cards',
     title: 'The Free Toolkit of a Modern Researcher',
-    subtitle: 'Everything here is free, industry-standard, and worth learning well.',
+    subtitle: 'Everything here is free, industry-standard and worth learning well.',
     cards: [
       {
         name: 'Python',
@@ -636,11 +636,11 @@ export const workshopOneSlidesPart2: Slide[] = [
     title: 'Your First Publication — A 5-Month Roadmap',
     subtitle: 'A realistic, part-time timeline for a beginner.',
     steps: [
-      { label: 'Month 1', caption: 'Learning — Python, math, and domain basics' },
+      { label: 'Month 1', caption: 'Learning — Python, math and domain basics' },
       { label: 'Month 2', caption: 'Paper Reading — 20\u201330 papers, notes, literature map' },
       { label: 'Month 3', caption: 'Implementation — replicate one paper\u2019s result' },
       { label: 'Month 4', caption: 'Writing — draft with LaTeX on Overleaf' },
-      { label: 'Month 5', caption: 'Submission — choose venue, format, and submit' },
+      { label: 'Month 5', caption: 'Submission — choose venue, format and submit' },
     ],
   },
 
@@ -671,7 +671,7 @@ export const workshopOneSlidesPart2: Slide[] = [
     type: 'achievement-cards',
     title: 'Success Stories',
     subtitle:
-      'Illustrative milestones — many students begin with no lab, no mentor, and no funding.',
+      'Illustrative milestones — many students begin with no lab, no mentor and no funding.',
     cards: [
       {
         name: 'Beginner Track',

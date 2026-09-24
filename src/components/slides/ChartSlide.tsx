@@ -41,7 +41,8 @@ const tooltipStyle = {
   borderRadius: '0.5rem',
   fontSize: '0.75rem',
   color: 'rgb(var(--foreground))',
-  boxShadow: '0 4px 12px rgba(0,0,0,0.08)',
+  boxShadow: '0 4px 12px rgba(0,0,0,0.12)',
+  padding: '0.5rem 0.75rem',
 } as const;
 
 export default function ChartSlide({ slide }: Props) {
@@ -170,24 +171,25 @@ function renderChart(slide: ChartSlideType) {
             ]}
 
           />
-          <Pie
-            data={slide.data}
-            dataKey="value"
-            nameKey="name"
-            cx="50%"
-            cy="50%"
-            outerRadius="72%"
-            innerRadius="40%"
-            paddingAngle={2}
-            label={(entry: any) =>
-              `${entry.name}  ${entry.value}${slide.unit ?? ''}`
-            }
-            labelLine={{ stroke: 'rgb(var(--border))' }}
-          >
-            {slide.data.map((_, i) => (
-              <Cell key={i} fill={PALETTE[i % PALETTE.length]} />
-            ))}
-          </Pie>
+
+            <Pie
+                data={slide.data}
+                dataKey="value"
+                nameKey="name"
+                cx="50%"
+                cy="50%"
+                outerRadius="72%"
+                innerRadius="40%"
+                paddingAngle={2}
+                label={(entry: any) => `${entry.name}  ${entry.value}${slide.unit ?? ''}`}
+                labelLine={{ stroke: 'rgb(var(--border))' }}
+                stroke="rgb(var(--surface))"
+                strokeWidth={2}
+                >
+                {slide.data.map((_, i) => (
+                    <Cell key={i} fill={PALETTE[i % PALETTE.length]} />
+                ))}
+            </Pie>
         </PieChart>
       );
   }

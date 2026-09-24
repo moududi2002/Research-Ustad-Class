@@ -135,3 +135,58 @@ h1, h2, h3, h4, h5, h6 {
 :fullscreen {
   background: rgb(var(--background));
 }
+
+/* ------------------------------------------------------------------ */
+/* Step 9 — Polish additions                                           */
+/* ------------------------------------------------------------------ */
+
+/* Sticky header overlap fix when jumping to #anchors */
+[id] {
+  scroll-margin-top: 5rem;
+}
+
+/* Respect user's reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Better image rendering on HiDPI */
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent text size adjust on mobile orientation change */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+/* Better tap highlight on mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent long-press context menu on nav buttons (mobile) */
+button,
+[role='button'] {
+  touch-action: manipulation;
+}
+
+/* Overview backdrop tweak */
+@media (max-width: 640px) {
+  .slide-container {
+    scrollbar-gutter: stable;
+  }
+}

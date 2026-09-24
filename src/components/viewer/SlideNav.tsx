@@ -114,6 +114,7 @@ interface NavButtonProps {
   subtle?: boolean;
 }
 
+
 function NavButton({ label, onClick, icon, disabled, subtle }: NavButtonProps) {
   return (
     <button
@@ -122,7 +123,7 @@ function NavButton({ label, onClick, icon, disabled, subtle }: NavButtonProps) {
       title={label}
       onClick={onClick}
       disabled={disabled}
-      className={`flex h-8 w-8 items-center justify-center rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
+      className={`flex h-10 w-10 items-center justify-center rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:h-9 sm:w-9 ${
         disabled
           ? 'cursor-not-allowed text-foreground-subtle/40'
           : subtle
