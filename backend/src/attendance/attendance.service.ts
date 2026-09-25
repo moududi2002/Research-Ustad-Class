@@ -25,44 +25,79 @@ export class AttendanceService {
     private readonly registrationLookupService: RegistrationLookupService,
   ) {}
 
-   async submitAttendance(dto: CreateAttendanceDto) {
-    const settings = await this.getSettings();
+  async submitAttendance(
+  dto: CreateAttendanceDto,
+) {
+  const settings = await this.getSettings();
 
-    if (!settings.attendanceEnabled) {
-      throw new ForbiddenException(
-        'Attendance is currently closed',
-      );
-    }
+  if (!settings.attendanceEnabled) {
+    throw new ForbiddenException(
+      'Attendance is currently closed',
+    );
+  }
 
-    const existing = await this.attendanceModel.findOne({
-      registrationId: dto.registrationId,
+  const registrationId =
+    dto.registrationId.trim().toUpperCase();
+
+  const feedback = dto.feedback.trim();
+
+  if (!feedback) {
+    throw new BadRequestException(
+      'Feedback is required',
+    );
+  }
+
+  const existing =
+    await this.attendanceModel.findOne({
+      registrationId,
     });
 
-    if (existing) {
-      throw new BadRequestException(
-        'Attendance already submitted',
-      );
-    }
+  if (existing) {
+    throw new BadRequestException(
+      'Attendance already submitted for this registration ID',
+    );
+  }
 
-    const registration =
-      await this.registrationLookupService.findRegistration(
-        dto.registrationId,
-      );
+  /**
+   * Always verify against MySQL again.
+   * Never trust participant-supplied name/email/phone.
+   */
+  const registration =
+    await this.registrationLookupService.findRegistration(
+      registrationId,
+    );
 
-    const attendance = await this.attendanceModel.create({
-      registrationId: registration.registrationId,
-      fullName: registration.fullName,
-      email: registration.email,
-      whatsapp: registration.whatsapp,
-      feedback: dto.feedback,
-      attended: true,
-    });
+  try {
+    const attendance =
+      await this.attendanceModel.create({
+        registrationId: registration.registrationId,
+        fullName: registration.fullName,
+        email: registration.email,
+        whatsapp: registration.whatsapp,
+        feedback,
+        attended: true,
+      });
 
     return {
       success: true,
+      message:
+        'Attendance and feedback submitted successfully',
       id: attendance._id,
     };
+  } catch (error: any) {
+    /**
+     * MongoDB duplicate-key protection.
+     * This also handles two simultaneous submissions.
+     */
+    if (error?.code === 11000) {
+      throw new BadRequestException(
+        'Attendance already submitted for this registration ID',
+      );
+    }
+
+    throw error;
   }
+}
 
     async getAttendanceStatus() {
     const settings = await this.getSettings();

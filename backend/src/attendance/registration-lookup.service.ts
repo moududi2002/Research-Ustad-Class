@@ -1,109 +1,87 @@
 // src/attendance/registration-lookup.service.ts
 import {
-  BadRequestException,
-  Inject,
-  Injectable,
-  NotFoundException,
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  UseGuards,
 } from '@nestjs/common';
 
-import type { 
-    Pool, 
-    RowDataPacket 
-} from 'mysql2/promise';
+import { RegistrationLookupService } from '@/registration-lookup.service';
+import { AttendanceService } from './attendance.service';
+import { CreateAttendanceDto } from './dto/create-attendance.dto';
 
-import { WORKSHOP_DB } from '../workshop-db/workshop-db.module';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { Public } from '../auth/decorators/public.decorator';
 
-/**
- * Represents one registration row returned from MySQL.
- *
- * These property names match the column names
- * returned by the SQL query below.
- */
-interface RegistrationRow extends RowDataPacket
- {
-  registration_id: string;
-  full_name: string;
-  email: string;
-  whatsapp: string;
-}
-
-@Injectable()
-export class RegistrationLookupService {
+@Controller('attendance')
+export class RegistrationLookupController {
   constructor(
-    /**
-     * Workshop MySQL connection pool.
-     *
-     * WORKSHOP_DB is provided by
-     * workshop-db.module.ts.
-     */
-    @Inject(WORKSHOP_DB)
-    private readonly db: Pool,
+    private readonly registrationLookupService: RegistrationLookupService,
+    private readonly attendanceService: AttendanceService,
   ) {}
 
   /**
-   * Find a participant by registration ID.
-   *
-   * The registration ID is normalized before
-   * querying the database:
-   *
-   * " ru-001 " -> "RU-001"
+   * Public:
+   * Participant registration ID lookup
    */
-  async findRegistration(registrationId: string) {
-    const normalizedId = registrationId
-      .trim()
-      .toUpperCase();
-
-    /**
-     * Registration ID is required.
-     */
-    if (!normalizedId) {
-      throw new BadRequestException(
-        'Registration ID is required',
-      );
-    }
-
-    /**
-     * Search the Workshop MySQL database.
-     *
-     * The ? placeholder is used for the value
-     * to avoid SQL injection.
-     */
-    const [rows] = await this.db.execute<RegistrationRow[]>(
-      `
-        SELECT
-          registration_id,
-          full_name,
-          email,
-          whatsapp
-        FROM registrations
-        WHERE registration_id = ?
-        LIMIT 1
-      `,
-      [normalizedId],
+  @Public()
+  @Get('registration/:registrationId')
+  async findRegistration(
+    @Param('registrationId') registrationId: string,
+  ) {
+    return this.registrationLookupService.findRegistration(
+      registrationId,
     );
+  }
 
-    /**
-     * No registration was found.
-     */
-    if (!rows.length) {
-      throw new NotFoundException(
-        'Registration ID not found',
-      );
-    }
+  /**
+   * Public:
+   * Check whether attendance is currently open
+   */
+  @Public()
+  @Get('status')
+  async getAttendanceStatus() {
+    return this.attendanceService.getAttendanceStatus();
+  }
 
-    const registration = rows[0];
+  /**
+   * Public:
+   * Submit attendance + feedback
+   */
+  @Public()
+  @Post('submit')
+  async submitAttendance(
+    @Body() dto: CreateAttendanceDto,
+  ) {
+    return this.attendanceService.submitAttendance(dto);
+  }
 
-    /**
-     * Return a clean application-level object.
-     *
-     * Database column names are converted into
-     * camelCase names used by the application.
-     */
-    return {
-      registrationId: registration.registration_id,
-      fullName: registration.full_name,
-      email: registration.email,
-      whatsapp: registration.whatsapp,
-    };
+  /**
+   * Admin only
+   */
+  @UseGuards(JwtAuthGuard)
+  @Get('admin/stats')
+  async getStats() {
+    return this.attendanceService.getStats();
+  }
+
+  /**
+   * Admin only
+   */
+  @UseGuards(JwtAuthGuard)
+  @Post('admin/open')
+  async openAttendance() {
+    return this.attendanceService.openAttendance();
+  }
+
+  /**
+   * Admin only
+   */
+  @UseGuards(JwtAuthGuard)
+  @Post('admin/close')
+  async closeAttendance() {
+    return this.attendanceService.closeAttendance();
   }
 }

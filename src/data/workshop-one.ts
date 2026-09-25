@@ -790,7 +790,7 @@ export const workshopOneSlidesPart2: Slide[] = [
   subtitle:
     'Complete your attendance and feedback, then continue your research journey with Research Ustad.',
 
-  attendanceFeedbackUrl: 'YOUR_ATTENDANCE_FEEDBACK_LINK',
+  attendanceFeedbackUrl: 'https://class.researchustad.org/atendence',
 
   courseTitle: 'Research Fundamentals',
   courseSubtitle:
