@@ -1,6 +1,7 @@
 // src/app/presentation/workshop-one/print/page.tsx
+
 import { allWorkshopOneSlides } from '@/data';
-import SlideRenderer from '@/components/viewer/SlideRenderer';
+import PrintSlideRenderer from '@/components/viewer/PrintSlideRenderer';
 
 export default function WorkshopOnePrintPage() {
   return (
@@ -10,7 +11,7 @@ export default function WorkshopOnePrintPage() {
           key={slide.id}
           className="pdf-slide"
         >
-          <SlideRenderer slide={slide} />
+          <PrintSlideRenderer slide={slide} />
         </section>
       ))}
     </main>
