@@ -1,15 +1,82 @@
 // src/components/slides/ClosingSlide.tsx
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { FiArrowLeft, FiGlobe, FiMail } from 'react-icons/fi';
+import { FiArrowLeft,FiDownload, FiGlobe, FiMail } from 'react-icons/fi';
 import type { ClosingSlide as ClosingSlideType } from '@/types/slide';
 
 interface Props {
   slide: ClosingSlideType;
 }
+
+const [showPdfModal, setShowPdfModal] = useState(false);
+const [accessKey, setAccessKey] = useState('');
+const [loading, setLoading] = useState(false);
+const [error, setError] = useState('');
+
+const handleDownloadPdf = async () => {
+  if (!accessKey.trim()) {
+    setError('Please enter the access key.');
+    return;
+  }
+
+  setLoading(true);
+  setError('');
+
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/pdf/workshop-one`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          accessKey: accessKey.trim(),
+        }),
+      },
+    );
+
+    if (!response.ok) {
+      if (response.status === 401) {
+        setError('Invalid access key.');
+      } else {
+        setError('Failed to generate PDF.');
+      }
+
+      return;
+    }
+
+    const blob = await response.blob();
+
+    const url = window.URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+
+    link.href = url;
+    link.download = 'Research-Ustad-Workshop.pdf';
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    link.remove();
+
+    window.URL.revokeObjectURL(url);
+
+    setShowPdfModal(false);
+    setAccessKey('');
+  } catch {
+    setError(
+      'Unable to connect to the server. Please try again.',
+    );
+  } finally {
+    setLoading(false);
+  }
+};
 
 export default function ClosingSlide({ slide }: Props) {
   return (
@@ -115,22 +182,118 @@ export default function ClosingSlide({ slide }: Props) {
           )}
         </motion.div>
 
-        {/* Back to home */}
+        { /* Get Pfdf */}
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
-          className="mt-14"
+          transition={{ duration: 0.5, delay: 0.65 }}
+          className="mt-8"
         >
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-medium text-foreground-muted transition-all hover:border-accent hover:text-accent"
+          <button
+            type="button"
+            onClick={() => {
+              setShowPdfModal(true);
+              setError('');
+            }}
+            className="inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:opacity-90"
           >
-            <FiArrowLeft className="h-4 w-4" />
-            Back to Home
-          </Link>
-        </motion.div>
-      </div>
+            <FiDownload className="h-4 w-4" />
+            Get PDF
+          </button>
+          </motion.div>
+
+          {/* Back to home */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+            className="mt-14"
+          >
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-medium text-foreground-muted transition-all hover:border-accent hover:text-accent"
+            >
+              <FiArrowLeft className="h-4 w-4" />
+              Back to Home
+            </Link>
+          </motion.div>
+        </div>
+
+
+        {showPdfModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4">
+          <div
+            className="w-full max-w-md rounded-2xl border border-border bg-surface p-6 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="mb-5">
+              <h2 className="text-xl font-semibold text-foreground">
+                Get Presentation PDF
+              </h2>
+
+              <p className="mt-2 text-sm text-foreground-muted">
+                Enter the access key to generate and download
+                the complete presentation PDF.
+              </p>
+            </div>
+
+            <input
+              type="password"
+              value={accessKey}
+              onChange={(e) => {
+                setAccessKey(e.target.value);
+                setError('');
+              }}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && !loading) {
+                  void handleDownloadPdf();
+                }
+              }}
+              placeholder="Enter access key"
+              autoFocus
+              disabled={loading}
+              className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm text-foreground outline-none transition focus:border-accent"
+            />
+
+            {error && (
+              <p className="mt-2 text-sm text-red-500">
+                {error}
+              </p>
+            )}
+
+            <div className="mt-5 flex justify-end gap-3">
+              <button
+                type="button"
+                onClick={() => {
+                  setShowPdfModal(false);
+                  setAccessKey('');
+                  setError('');
+                }}
+                disabled={loading}
+                className="rounded-xl border border-border px-4 py-2.5 text-sm font-medium text-foreground-muted transition hover:bg-background disabled:opacity-50"
+              >
+                Cancel
+              </button>
+
+              <button
+                type="button"
+                onClick={() => void handleDownloadPdf()}
+                disabled={loading}
+                className="inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-2.5 text-sm font-semibold text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                <FiDownload className="h-4 w-4" />
+
+                {loading
+                  ? 'Generating PDF...'
+                  : 'Generate PDF'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )} 
+
+
     </div>
   );
 }

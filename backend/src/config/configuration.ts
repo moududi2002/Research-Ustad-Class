@@ -25,6 +25,10 @@ export interface AppConfig {
     /** ms between pings */
     pingInterval: number;
   };
+  pdf: {
+  accessKey: string;
+  frontendUrl: string;
+};
 }
 
 export default (): AppConfig => ({
@@ -54,4 +58,9 @@ export default (): AppConfig => ({
     pingTimeout: parseInt(process.env.SOCKET_PING_TIMEOUT ?? '20000', 10),
     pingInterval: parseInt(process.env.SOCKET_PING_INTERVAL ?? '25000', 10),
   },
+  pdf: {
+  accessKey: process.env.PDF_ACCESS_KEY ?? '',
+  frontendUrl:
+    process.env.FRONTEND_URL ?? 'http://localhost:3006',
+},
 });

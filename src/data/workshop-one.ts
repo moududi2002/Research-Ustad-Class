@@ -747,9 +747,9 @@ export const workshopOneSlidesPart2: Slide[] = [
     quote:
       'Research is not for geniuses. Research is for curious and consistent people.',
     quoteAuthor: 'Research Ustad Classes',
-    contact: 'researchustad@example.com',
-    website: 'www.researchustad.com',
+    contact: 'info@researchustad.org',
+    website: 'www.researchustad.org',
     logo: '/RU_logo.png',
-    qrImage: undefined, // আপনি চাইলে পরে /qr.png দিতে পারবেন
+    qrImage: qr.png, // আপনি চাইলে পরে /qr.png দিতে পারবেন
   },
 ];

@@ -23,4 +23,7 @@ export const envValidationSchema = Joi.object({
 
   THROTTLE_TTL: Joi.number().default(60),
   THROTTLE_LIMIT: Joi.number().default(60),
+
+  PDF_ACCESS_KEY: Joi.string().min(8).required(),
+  FRONTEND_URL: Joi.string().uri().required(),
 });

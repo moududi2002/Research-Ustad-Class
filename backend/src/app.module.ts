@@ -13,6 +13,7 @@ import { envValidationSchema } from '@/config/env.validation';
 import { AuthModule } from '@/auth/auth.module';
 import { PollsModule } from '@/polls/polls.module';
 import { SchedulerModule } from '@/scheduler/scheduler.module';
+import { PdfModule } from '@/pdf/pdf.module';
 
 @Module({
   imports: [
@@ -59,6 +60,7 @@ import { SchedulerModule } from '@/scheduler/scheduler.module';
     AuthModule,
     PollsModule,
     SchedulerModule,
+    PdfModule,
   ],
   providers: [
     {

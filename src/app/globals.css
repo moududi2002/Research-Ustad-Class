@@ -190,3 +190,51 @@ button,
     scrollbar-gutter: stable;
   }
 }
+
+@page {
+  size: 13.333in 7.5in;
+  margin: 0;
+}
+
+.pdf-document {
+  width: 13.333in;
+  margin: 0;
+  padding: 0;
+}
+
+.pdf-slide {
+  position: relative;
+  width: 13.333in;
+  height: 7.5in;
+  overflow: hidden;
+
+  page-break-after: always;
+  break-after: page;
+
+  background: var(--background);
+}
+
+.pdf-slide:last-child {
+  page-break-after: auto;
+  break-after: auto;
+}
+
+@media print {
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 13.333in;
+    background: white;
+  }
+
+  .pdf-slide {
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .pdf-slide:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+}
