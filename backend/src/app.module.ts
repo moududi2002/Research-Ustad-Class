@@ -17,6 +17,8 @@ import { PdfModule } from '@/pdf/pdf.module';
 
 import { WorkshopDbModule } from './workshop-db/workshop-db.module';
 
+import { AttendanceModule } from './attendance/attendance.module';
+
 @Module({
   imports: [
     /* ---------------- Config ---------------- */
@@ -63,8 +65,9 @@ import { WorkshopDbModule } from './workshop-db/workshop-db.module';
     PollsModule,
     SchedulerModule,
     PdfModule,
-    
+
     WorkshopDbModule,
+    AttendanceModule,
   ],
   providers: [
     {
