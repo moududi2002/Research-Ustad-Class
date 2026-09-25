@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FiArrowLeft,FiDownload, FiGlobe, FiMail } from 'react-icons/fi';
 import type { ClosingSlide as ClosingSlideType } from '@/types/slide';
+import { QRCodeSVG } from 'qrcode.react';
 
 interface Props {
   slide: ClosingSlideType;
@@ -182,6 +183,21 @@ export default function ClosingSlide({ slide }: Props) {
             </div>
           )}
             */}
+
+            <div className="flex flex-col items-center gap-2">
+            <div className="flex h-32 w-32 items-center justify-center overflow-hidden rounded-xl border border-border bg-surface p-2">
+              <QRCodeSVG
+                value={slide.website}
+                width={112}
+                height={112}
+              />
+            </div>
+
+            <span className="text-xs uppercase tracking-[0.14em] text-foreground-subtle">
+              Scan to connect
+            </span>
+          </div>
+
         </motion.div>
 
         { /* Get Pfdf */}
