@@ -184,6 +184,7 @@ export default function ClosingSlide({ slide }: Props) {
           )}
             */}
 
+            { slide.website &&(
             <div className="flex flex-col items-center gap-2">
             <div className="flex h-32 w-32 items-center justify-center overflow-hidden rounded-xl border border-border bg-surface p-2">
               <QRCodeSVG
@@ -196,7 +197,8 @@ export default function ClosingSlide({ slide }: Props) {
             <span className="text-xs uppercase tracking-[0.14em] text-foreground-subtle">
               Scan to connect
             </span>
-          </div>
+           </div>
+          )}
 
         </motion.div>
 
