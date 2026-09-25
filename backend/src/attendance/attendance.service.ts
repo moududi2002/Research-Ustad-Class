@@ -25,7 +25,7 @@ export class AttendanceService {
     private readonly registrationLookupService: RegistrationLookupService,
   ) {}
 
-  async submitAttendance(
+    async submitAttendance(
   dto: CreateAttendanceDto,
 ) {
   const settings = await this.getSettings();
@@ -96,8 +96,8 @@ export class AttendanceService {
     }
 
     throw error;
-  }
-}
+   }
+ }
 
     async getAttendanceStatus() {
     const settings = await this.getSettings();
