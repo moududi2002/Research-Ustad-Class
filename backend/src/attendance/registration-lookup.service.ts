@@ -1,4 +1,5 @@
 // src/attendance/registration-lookup.service.ts
+import type { Pool, RowDataPacket } from 'mysql2/promise';
 
 import {
   BadRequestException,
@@ -7,7 +8,6 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 
-import type { Pool } from 'mysql2/promise';
 
 import { WORKSHOP_DB } from '../workshop-db/workshop-db.module';
 
