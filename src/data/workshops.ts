@@ -19,8 +19,8 @@ export const workshops: WorkshopCard[] = [
     title: 'Workshop One',
     subtitle:
       'Research: What, Why and Its Importance in Higher Study',
-    date: '2025',
-    duration: '60 Minutes',
+    date: 'October 2026',
+    duration: '120 Minutes',
     level: 'Beginner',
     status: 'active',
     badge: 'Available',

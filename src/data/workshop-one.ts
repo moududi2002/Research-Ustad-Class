@@ -10,10 +10,10 @@ import type { Slide } from '@/types/slide';
 export const workshopOneMeta = {
   slug: 'workshop-one',
   title: 'Research: What, Why and Its Importance in Higher Study',
-  subtitle: 'Workshop Part 1 — A 30-Minute Academic Session',
-  date: '2025',
+  subtitle: 'Workshop Part 1 — A 60-Minute Academic Session',
+  date: 'October 2026',
   instructor: 'Research Ustad Classes',
-  duration: '30 Minutes',
+  duration: '120 Minutes',
   level: 'Beginner',
   logo: '/RU_logo.png',
 };
@@ -26,34 +26,15 @@ export const workshopOneSlides: Slide[] = [
     id: 1,
     type: 'cover',
     title: 'Research: What, Why and Its Importance in Higher Study',
-    subtitle: 'Workshop Part 1 — A 30-Minute Academic Session',
+    subtitle: 'Workshop Part 1 — A 60-Minute Academic Session',
     speaker: 'Research Ustad Classes',
-    date: '2025',
+    date: 'October 2026',
     background:
       'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1920&q=80',
     logo: '/RU_logo.png',
+    duration: '60 Minutes',
   },
 
-  /* --------------------------------------------------------- */
-  /* Slide 2 — Ice Breaking                                    */
-  /* --------------------------------------------------------- */
- /*
-   {
-    id: 2,
-    type: 'poll',
-    title: 'Ice Breaking',
-    question: 'Why do you want to learn Research?',
-    options: [
-      { label: 'Scholarship',    weight: 30 },
-      { label: 'Higher Study',   weight: 25 },
-      { label: 'Publication',    weight: 20 },
-      { label: 'Career Growth',  weight: 15 },
-      { label: 'Pure Curiosity', weight: 10 },
-    ],
-    footnote:
-      'Research is not a single-track path — every motivation is valid and often they overlap.',
-  },
-  */
 
   /* --------------------------------------------------------- */
   /* Slide 2 — Ice Breaking (LIVE POLL)                        */
@@ -350,6 +331,35 @@ export const workshopOneSlides: Slide[] = [
     footnote:
       'Part 2 will show you exactly how to start — with zero lab, zero funding and only a laptop.',
   },
+
+
+ /* --------------------------------------------------------- */
+  /* Slide 16 — 10 Minutes Break                              */
+  /* --------------------------------------------------------- */
+  {
+    id: 16,
+    type: 'break',
+    title: '10 Minutes Break',
+    subtitle: 'Pause. Refresh. Connect.',
+    duration: 600,
+    activities: [
+      {
+        title: 'Refresh',
+        description:
+          'Step away from the screen, stretch, drink some water and give your mind a short reset.',
+      },
+      {
+        title: 'Connect',
+        description:
+          'Talk to someone beside you. Share one research idea or one question you have after Part 1.',
+      },
+      {
+        title: 'Reflect',
+        description:
+          'Think quietly: “What is one research problem I would genuinely like to explore?”',
+      },
+    ],
+  },
 ];
 
 /* =========================================================
@@ -364,11 +374,28 @@ export const workshopOneSlides: Slide[] = [
    ========================================================= */
 
 export const workshopOneSlidesPart2: Slide[] = [
-  /* --------------------------------------------------------- */
-  /* Slide 16 — The Problem                                    */
+
+    /* --------------------------------------------------------- */
+  /* Slide 17 — Part 2 Cover                                   */
   /* --------------------------------------------------------- */
   {
-    id: 16,
+    id: 17,
+    type: 'cover',
+    title: 'Resource Independent Research Journey',
+    subtitle: 'Workshop Part 2 — From Curiosity to Research',
+    speaker: 'Research Ustad Classes',
+    date: 'October 2026',
+    background:
+      'https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_1280.jpg',
+    logo: '/RU_logo.png',
+    duration: '60 Minutes',
+  },
+
+  /* --------------------------------------------------------- */
+  /* Slide 18 — The Problem                                    */
+  /* --------------------------------------------------------- */
+  {
+    id: 18,
     type: 'barrier',
     title: 'The Problem — Why Most People Never Start',
     intro:
@@ -386,10 +413,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 17 — The Truth                                      */
+  /* Slide 19 — The Truth                                      */
   /* --------------------------------------------------------- */
   {
-    id: 17,
+    id: 19,
     type: 'minimal-setup',
     title: 'The Truth About Starting',
     items: [
@@ -407,10 +434,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 18 — Research Resources (Free)                      */
+  /* Slide 20 — Research Resources (Free)                      */
   /* --------------------------------------------------------- */
   {
-    id: 18,
+    id: 20,
     type: 'logo-cards',
     title: 'Free Research Resources You Already Have Access To',
     subtitle: 'No subscription. No institutional login required for most.',
@@ -450,10 +477,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 19 — Learning Roadmap                               */
+  /* Slide 21 — Learning Roadmap                               */
   /* --------------------------------------------------------- */
   {
-    id: 19,
+    id: 21,
     type: 'timeline',
     title: 'Your Learning Roadmap',
     subtitle: 'A five-stage path from beginner to first publication.',
@@ -467,10 +494,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 20 — Paper Reading Strategy                         */
+  /* Slide 22 — Paper Reading Strategy                         */
   /* --------------------------------------------------------- */
   {
-    id: 20,
+    id: 22,
     type: 'numbered-list',
     title: 'How to Read a Research Paper',
     intro:
@@ -500,10 +527,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 21 — Free Datasets                                  */
+  /* Slide 23 — Free Datasets                                  */
   /* --------------------------------------------------------- */
   {
-    id: 21,
+    id: 23,
     type: 'logo-cards',
     title: 'Free Datasets You Can Start With Today',
     subtitle: 'Real datasets used in published research across ML, healthcare and engineering.',
@@ -539,10 +566,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 22 — Free Tools                                     */
+  /* Slide 24 — Free Tools                                     */
   /* --------------------------------------------------------- */
   {
-    id: 22,
+    id: 24,
     type: 'logo-cards',
     title: 'The Free Toolkit of a Modern Researcher',
     subtitle: 'Everything here is free, industry-standard and worth learning well.',
@@ -578,10 +605,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 23 — Research Workflow                              */
+  /* Slide 25 — Research Workflow                              */
   /* --------------------------------------------------------- */
   {
-    id: 23,
+    id: 25,
     type: 'flow',
     title: 'A Typical Research Workflow',
     steps: [
@@ -596,10 +623,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 24 — Common Mistakes                                */
+  /* Slide 26 — Common Mistakes                                */
   /* --------------------------------------------------------- */
   {
-    id: 24,
+    id: 26,
     type: 'warning-cards',
     title: 'Common Mistakes Beginners Make',
     cards: [
@@ -632,10 +659,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 25 — Building Research Profile                      */
+  /* Slide 27 — Building Research Profile                      */
   /* --------------------------------------------------------- */
   {
-    id: 25,
+    id: 27,
     type: 'ecosystem',
     title: 'Building a Visible Research Profile',
     subtitle:
@@ -652,10 +679,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 26 — First Publication Roadmap                      */
+  /* Slide 28 — First Publication Roadmap                      */
   /* --------------------------------------------------------- */
   {
-    id: 26,
+    id: 28,
     type: 'timeline',
     title: 'Your First Publication — A 5-Month Roadmap',
     subtitle: 'A realistic, part-time timeline for a beginner.',
@@ -669,10 +696,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 27 — Research Ustad Ecosystem                       */
+  /* Slide 29 — Research Ustad Ecosystem                       */
   /* --------------------------------------------------------- */
   {
-    id: 27,
+    id: 29,
     type: 'ecosystem',
     title: 'The Research Ustad Ecosystem',
     subtitle: 'A complete support system — from first lesson to first publication.',
@@ -688,10 +715,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 28 — Success Stories                                */
+  /* Slide 30 — Success Stories                                */
   /* --------------------------------------------------------- */
   {
-    id: 28,
+    id: 30,
     type: 'achievement-cards',
     title: 'Success Stories',
     subtitle:
@@ -721,10 +748,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 29 — Action Plan                                    */
+  /* Slide 31 — Action Plan                                    */
   /* --------------------------------------------------------- */
   {
-    id: 29,
+    id: 31,
     type: 'roadmap',
     title: 'Your Action Plan — Starting Today',
     items: [
@@ -738,10 +765,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 30 — Thank You + Q&A                                */
+  /* Slide 32 — Thank You + Q&A                                */
   /* --------------------------------------------------------- */
   {
-    id: 30,
+    id: 32,
     type: 'closing',
     title: 'Thank You — Questions & Discussion',
     quote:
@@ -752,4 +779,29 @@ export const workshopOneSlidesPart2: Slide[] = [
     logo: '/RU_logo.png',
     // qrImage: qr.png, // আপনি চাইলে পরে /qr.png দিতে পারবেন
   },
+ /* --------------------------------------------------------- */
+  /* Slide 33 -- Promotion                                     */
+  /* --------------------------------------------------------- */
+  
+  {
+  id: 33,
+  type: 'promotion',
+  title: 'Stay Connected. Keep Researching.',
+  subtitle:
+    'Complete your attendance and feedback, then continue your research journey with Research Ustad.',
+
+  attendanceFeedbackUrl: 'YOUR_ATTENDANCE_FEEDBACK_LINK',
+
+  courseTitle: 'Research Fundamentals',
+  courseSubtitle:
+    'A structured 3-month journey from zero to advanced research — learn, practice and build your research profile step by step.',
+  courseDuration: '3 Months',
+  courseModules: 5,
+
+  discountCode: 'RUW26/01',
+  discountPercent: 25,
+  discountCondition:
+    'Workshop participants can claim this discount by registering with the same email address used for this workshop registration.',
+},
+
 ];

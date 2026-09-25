@@ -8,6 +8,7 @@
 
 export type Slide =
   | CoverSlide
+  | BreakSlide
   | PollSlide
   | PollLiveSlide     
   | FlowSlide
@@ -28,7 +29,8 @@ export type Slide =
   | EcosystemSlide
   | AchievementCardsSlide
   | RoadmapSlide
-  | ClosingSlide;
+  | ClosingSlide
+  | PromotionSlide;
 
 /* ------------------------------------------------------------------ */
 /* Shared small types                                                  */
@@ -54,6 +56,24 @@ export interface CoverSlide {
   date: string;
   background: string; // image URL
   logo?: string;      // e.g. /RU_logo.png
+  duration?: string;
+}
+
+/* ------------------------------------------------------------------ */
+/* Break                                                           */
+/* ------------------------------------------------------------------ */
+
+
+export interface BreakSlide {
+  id: number;
+  type: 'break';
+  title: string;
+  subtitle: string;
+  duration: number;
+  activities: {
+    title: string;
+    description: string;
+  }[];
 }
 
 /* ------------------------------------------------------------------ */
@@ -364,4 +384,22 @@ export interface PollLiveSlide {
    * Useful for offline talks.
    */
   liveEnabled: boolean;
+}
+
+export interface PromotionSlide {
+  id: number;
+  type: 'promotion';
+  title: string;
+  subtitle: string;
+
+  attendanceFeedbackUrl: string;
+
+  courseTitle: string;
+  courseSubtitle: string;
+  courseDuration: string;
+  courseModules: number;
+
+  discountCode: string;
+  discountPercent: number;
+  discountCondition: string;
 }

@@ -23,6 +23,10 @@ import AchievementCardsSlide from '@/components/slides/AchievementCardsSlide';
 import RoadmapSlide from '@/components/slides/RoadmapSlide';
 import ClosingSlide from '@/components/slides/ClosingSlide';
 
+import BreakSlide from '@/components/slides/BreakSlide';
+import PromotionSlide from '@/components/slides/PromotionSlide';
+
+
 interface Props {
   slide: Slide;
 }
@@ -95,6 +99,12 @@ export default function PrintSlideRenderer({ slide }: Props) {
 
     case 'closing':
       return <ClosingSlide slide={slide} />;
+
+    case 'promotion':
+      return <PromotionSlide slide={slide} />;
+
+    case 'break':
+       return <BreakSlide slide={slide} printMode />;
 
     case 'poll-live':
       return null;

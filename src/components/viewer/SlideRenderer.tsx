@@ -24,6 +24,10 @@ import RoadmapSlide from '@/components/slides/RoadmapSlide';
 import ClosingSlide from '@/components/slides/ClosingSlide';
 import PollLiveSlide from '@/components/slides/PollLiveSlide';
 
+import BreakSlide from '@/components/slides/BreakSlide';
+
+import PromotionSlide from '@/components/slides/PromotionSlide';
+
 interface Props {
   slide: Slide;
 }
@@ -32,6 +36,8 @@ export default function SlideRenderer({ slide }: Props) {
   switch (slide.type) {
     case 'cover':
       return <CoverSlide slide={slide} />;
+    case 'break':
+    return <BreakSlide slide={slide} />;
     case 'poll':
       return <PollSlide slide={slide} />;
     case 'poll-live':
@@ -74,6 +80,9 @@ export default function SlideRenderer({ slide }: Props) {
       return <RoadmapSlide slide={slide} />;
     case 'closing':
       return <ClosingSlide slide={slide} />;
+
+    case 'promotion':
+       return <PromotionSlide slide={slide} />;
     
 
     /* ------- Safety fallback (should never happen with typed slides) ------- */

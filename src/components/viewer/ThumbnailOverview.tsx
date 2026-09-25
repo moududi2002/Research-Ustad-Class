@@ -18,6 +18,7 @@ interface Props {
 /* Human-readable label for each slide type */
 const typeLabel: Record<Slide['type'], string> = {
   cover: 'Cover',
+  break: 'Break',
   poll: 'Poll',
   'poll-live': 'Live Poll',
   flow: 'Flow',
@@ -39,6 +40,7 @@ const typeLabel: Record<Slide['type'], string> = {
   'achievement-cards': 'Milestones',
   roadmap: 'Roadmap',
   closing: 'Closing',
+  promotion: 'Promotion',
 };
 
 export default function ThumbnailOverview({

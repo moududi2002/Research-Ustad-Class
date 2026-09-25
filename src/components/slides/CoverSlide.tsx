@@ -3,7 +3,7 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { FiCalendar, FiUser } from 'react-icons/fi';
+import { FiCalendar, FiUser ,FiClock} from 'react-icons/fi';
 import type { CoverSlide as CoverSlideType } from '@/types/slide';
 
 interface Props {
@@ -76,16 +76,28 @@ export default function CoverSlide({ slide }: Props) {
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-white/70"
+          transition={{ delay: 0.45, duration: 0.5 }}
+          className="mt-8 flex flex-wrap items-center justify-center gap-4 text-sm text-white/80"
         >
           <span className="inline-flex items-center gap-2">
             <FiUser className="h-4 w-4" />
             {slide.speaker}
           </span>
+
+          {slide.duration && (
+            <>
+              <span className="hidden h-4 w-px bg-white/20 sm:block" />
+              <span className="inline-flex items-center gap-2">
+                <FiClock className="h-4 w-4" />
+                {slide.duration}
+              </span>
+            </>
+          )}
+
           <span className="hidden h-4 w-px bg-white/20 sm:block" />
+
           <span className="inline-flex items-center gap-2">
             <FiCalendar className="h-4 w-4" />
             {slide.date}
