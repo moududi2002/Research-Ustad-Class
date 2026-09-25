@@ -36,6 +36,18 @@ export default (): AppConfig => ({
   port: parseInt(process.env.PORT ?? '4001', 10),
   mongodbUri:
     process.env.MONGODB_URI ?? 'mongodb://127.0.0.1:27017/research_ustad',
+  
+    workshopDb: {
+    host: process.env.WORKSHOP_DB_HOST ?? '127.0.0.1',
+    port: parseInt(process.env.WORKSHOP_DB_PORT ?? '3306', 10),
+    username: process.env.WORKSHOP_DB_USERNAME ?? 'root',
+    password: process.env.WORKSHOP_DB_PASSWORD ?? '',
+    database:
+      process.env.WORKSHOP_DB_DATABASE ?? 'research_ustad_workshop',
+    },
+
+    workshopId: process.env.WORKSHOP_ID ?? 'workshop-one',
+    });
   jwt: {
     secret: process.env.JWT_SECRET ?? '',
     expiresIn: process.env.JWT_EXPIRES_IN ?? '7d',

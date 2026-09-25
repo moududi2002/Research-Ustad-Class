@@ -27,7 +27,7 @@ export const workshopOneSlides: Slide[] = [
     type: 'cover',
     title: 'Research: What, Why and Its Importance in Higher Study',
     subtitle: 'Workshop Part 1 — A 60-Minute Academic Session',
-    speaker: 'Research Ustad Classes',
+    speaker: 'Anichur Rahman, Founder & CEO',
     date: 'October 2026',
     background:
       'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1920&q=80',
@@ -383,7 +383,7 @@ export const workshopOneSlidesPart2: Slide[] = [
     type: 'cover',
     title: 'Resource Independent Research Journey',
     subtitle: 'Workshop Part 2 — From Curiosity to Research',
-    speaker: 'Research Ustad Classes',
+    speaker: 'Anichur Rahman, Founder & CEO',
     date: 'October 2026',
     background:
       'https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_1280.jpg',
