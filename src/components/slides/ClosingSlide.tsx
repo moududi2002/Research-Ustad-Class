@@ -13,73 +13,73 @@ interface Props {
   slide: ClosingSlideType;
 }
 
-const [showPdfModal, setShowPdfModal] = useState(false);
-const [accessKey, setAccessKey] = useState('');
-const [loading, setLoading] = useState(false);
-const [error, setError] = useState('');
 
-const handleDownloadPdf = async () => {
-  if (!accessKey.trim()) {
-    setError('Please enter the access key.');
-    return;
-  }
+export default function ClosingSlide({ slide }: Props) {
+  const [showPdfModal, setShowPdfModal] = useState(false);
+  const [accessKey, setAccessKey] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  setLoading(true);
-  setError('');
-
-  try {
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/pdf/workshop-one`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          accessKey: accessKey.trim(),
-        }),
-      },
-    );
-
-    if (!response.ok) {
-      if (response.status === 401) {
-        setError('Invalid access key.');
-      } else {
-        setError('Failed to generate PDF.');
-      }
-
+  const handleDownloadPdf = async () => {
+    if (!accessKey.trim()) {
+      setError('Please enter the access key.');
       return;
     }
 
-    const blob = await response.blob();
+    setLoading(true);
+    setError('');
 
-    const url = window.URL.createObjectURL(blob);
+    try {
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/pdf/workshop-one`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            accessKey: accessKey.trim(),
+          }),
+        },
+      );
 
-    const link = document.createElement('a');
+      if (!response.ok) {
+        if (response.status === 401) {
+          setError('Invalid access key.');
+        } else {
+          setError('Failed to generate PDF.');
+        }
 
-    link.href = url;
-    link.download = 'Research-Ustad-Workshop.pdf';
+        return;
+      }
 
-    document.body.appendChild(link);
+      const blob = await response.blob();
 
-    link.click();
+      const url = window.URL.createObjectURL(blob);
 
-    link.remove();
+      const link = document.createElement('a');
 
-    window.URL.revokeObjectURL(url);
+      link.href = url;
+      link.download = 'Research-Ustad-Workshop.pdf';
 
-    setShowPdfModal(false);
-    setAccessKey('');
-  } catch {
-    setError(
-      'Unable to connect to the server. Please try again.',
-    );
-  } finally {
-    setLoading(false);
-  }
-};
+      document.body.appendChild(link);
 
-export default function ClosingSlide({ slide }: Props) {
+      link.click();
+
+      link.remove();
+
+      window.URL.revokeObjectURL(url);
+
+      setShowPdfModal(false);
+      setAccessKey('');
+    } catch {
+      setError(
+        'Unable to connect to the server. Please try again.',
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <div className="relative flex min-h-full w-full items-center justify-center overflow-hidden">
       {/* subtle background */}
