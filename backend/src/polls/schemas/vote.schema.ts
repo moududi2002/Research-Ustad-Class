@@ -18,7 +18,7 @@ export class Vote {
   deviceHash!: string;
 
   /** Optional client-generated UUID stored in localStorage (extra safety) */
-  @Prop({ default: null })
+  @Prop({ type: String, default: null })
   clientToken!: string | null;
 }
 
