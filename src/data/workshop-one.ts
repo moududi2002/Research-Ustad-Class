@@ -750,6 +750,6 @@ export const workshopOneSlidesPart2: Slide[] = [
     contact: 'info@researchustad.org',
     website: 'www.researchustad.org',
     logo: '/RU_logo.png',
-    qrImage: qr.png, // আপনি চাইলে পরে /qr.png দিতে পারবেন
+    // qrImage: qr.png, // আপনি চাইলে পরে /qr.png দিতে পারবেন
   },
 ];
