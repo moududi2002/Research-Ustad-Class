@@ -67,3 +67,12 @@ function generateUuid(): string {
     return v.toString(16);
   });
 }
+
+export function clearLocalVote(slug: string): void {
+  if (typeof window === 'undefined') return;
+
+  try {
+    window.localStorage.removeItem(`ru.voted.${slug}`);
+    window.localStorage.removeItem(`ru.voted.${slug}.option`);
+  } catch {}
+}

@@ -9,6 +9,7 @@ import {
   getLocalVote,
   hasVotedLocally,
   markVotedLocally,
+  clearLocalVote,
 } from '@/lib/device';
 import type { PollPublicView } from '@/types/poll';
 
@@ -131,10 +132,22 @@ export function usePollLive(slug: string): UsePollLiveResult {
 
     const onReset = (payload: { slug: string; view: PollPublicView }) => {
       if (payload.slug !== slug) return;
+
+      clearLocalVote(slug);
+      setVoted(false);
+      setVotedOptionId(null);
+
       setPoll(payload.view);
       pollRef.current = payload.view;
     };
 
+    {/*
+    const onReset = (payload: { slug: string; view: PollPublicView }) => {
+      if (payload.slug !== slug) return;
+      setPoll(payload.view);
+      pollRef.current = payload.view;
+    };
+      */}
     if (socket.connected) onConnect();
     socket.on('connect', onConnect);
     socket.on('disconnect', onDisconnect);
