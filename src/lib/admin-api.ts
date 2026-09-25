@@ -217,3 +217,34 @@ export async function adminGetPoll(slug: string): Promise<PollPublicView> {
 }
 
 export type { ApiError };
+
+/* ------------------------------------------------------------------ */
+/* Attendance (admin)                                                 */
+/* ------------------------------------------------------------------ */
+
+export interface AttendanceStats {
+  enabled: boolean;
+  totalAttendance: number;
+}
+
+export async function adminGetAttendanceStats(): Promise<AttendanceStats> {
+  return authFetch<AttendanceStats>('/api/attendance/admin/stats');
+}
+
+export async function adminOpenAttendance(): Promise<{
+  success: boolean;
+  enabled: boolean;
+}> {
+  return authFetch('/api/attendance/admin/open', {
+    method: 'POST',
+  });
+}
+
+export async function adminCloseAttendance(): Promise<{
+  success: boolean;
+  enabled: boolean;
+}> {
+  return authFetch('/api/attendance/admin/close', {
+    method: 'POST',
+  });
+}

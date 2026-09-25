@@ -2,6 +2,7 @@
 'use client';
 
 import AdminAuthGuard from '@/components/admin/AdminAuthGuard';
+import AttendanceManagement from '@/components/admin/AttendanceManagement';
 import AdminHeader from '@/components/admin/AdminHeader';
 import PollCard from '@/components/admin/PollCard';
 import { useAdminPolls } from '@/hooks/useAdminPolls';
@@ -22,6 +23,7 @@ function Dashboard() {
 
   return (
     <main className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
+      <AttendanceManagement />
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 className="font-serif text-2xl font-medium text-foreground sm:text-3xl">
