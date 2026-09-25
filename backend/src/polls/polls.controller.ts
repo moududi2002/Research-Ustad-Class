@@ -5,7 +5,9 @@ import {
   Controller,
   Get,
   Param,
+  Patch,
   Post,
+  Query,
   Req,
   UseGuards,
 } from '@nestjs/common';
@@ -14,6 +16,9 @@ import { ConfigService } from '@nestjs/config';
 import { PollsService } from './polls.service';
 import { CreatePollDto } from './dto/create-poll.dto';
 import { SubmitVoteDto } from './dto/submit-vote.dto';
+import { UpdatePollDto } from './dto/update-poll.dto';
+import { StartPollDto } from './dto/start-poll.dto';
+import { ListPollsDto } from './dto/list-polls.dto';
 import { JwtAuthGuard } from '@/auth/guards/jwt-auth.guard';
 import { Public } from '@/common/decorators/public.decorator';
 import { computeDeviceHash } from '@/common/utils/device-hash.util';
@@ -30,6 +35,15 @@ export class PollsController {
   /* --------------------------------------------------------------- */
 
   @UseGuards(JwtAuthGuard)
+  @Get()
+  async list(@Query() query: ListPollsDto) {
+    const polls = await this.polls.listPolls({
+      workshopId: query.workshopId,
+    });
+    return { success: true, polls };
+  }
+
+  @UseGuards(JwtAuthGuard)
   @Post()
   async create(@Body() dto: CreatePollDto) {
     const view = await this.polls.createPoll(dto);
@@ -37,9 +51,16 @@ export class PollsController {
   }
 
   @UseGuards(JwtAuthGuard)
+  @Patch(':slug')
+  async update(@Param('slug') slug: string, @Body() dto: UpdatePollDto) {
+    const view = await this.polls.updatePoll(slug, dto);
+    return { success: true, poll: view };
+  }
+
+  @UseGuards(JwtAuthGuard)
   @Post(':slug/start')
-  async start(@Param('slug') slug: string) {
-    const view = await this.polls.startPoll(slug);
+  async start(@Param('slug') slug: string, @Body() dto: StartPollDto) {
+    const view = await this.polls.startPoll(slug, dto.durationSec);
     return { success: true, poll: view };
   }
 

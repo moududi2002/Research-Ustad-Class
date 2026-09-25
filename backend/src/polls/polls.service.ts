@@ -14,6 +14,7 @@ import { Poll, PollDocument } from './schemas/poll.schema';
 import { Vote, VoteDocument } from './schemas/vote.schema';
 import type { CreatePollDto } from './dto/create-poll.dto';
 import type { SubmitVoteDto } from './dto/submit-vote.dto';
+import type { UpdatePollDto } from './dto/update-poll.dto';
 import type { PollPublicView } from './dto/poll-response.dto';
 import { PollsEventsService } from './polls-events.service';
 
@@ -27,7 +28,28 @@ export class PollsService {
   ) {}
 
   /* --------------------------------------------------------------- */
-  /* Admin: create / start / end / reset                             */
+  /* Admin: list                                                     */
+  /* --------------------------------------------------------------- */
+
+  async listPolls(options: { workshopId?: string }): Promise<PollPublicView[]> {
+    const filter = options.workshopId
+      ? { workshopId: options.workshopId }
+      : {};
+
+    const polls = await this.pollModel
+      .find(filter)
+      .sort({ createdAt: -1 })
+      .exec();
+
+    // Compute votes for each poll efficiently
+    const views = await Promise.all(
+      polls.map((p) => this.toPublicView(p)),
+    );
+    return views;
+  }
+
+  /* --------------------------------------------------------------- */
+  /* Admin: create / update / start / end / reset                    */
   /* --------------------------------------------------------------- */
 
   async createPoll(dto: CreatePollDto): Promise<PollPublicView> {
@@ -51,26 +73,69 @@ export class PollsService {
     });
 
     const view = await this.toPublicView(poll);
-    // optional: notify anyone already in the room
     this.events.emitReset({ slug: view.slug, view });
     return view;
   }
 
-  async startPoll(slug: string): Promise<PollPublicView> {
+  async updatePoll(
+    slug: string,
+    dto: UpdatePollDto,
+  ): Promise<PollPublicView> {
     const poll = await this.pollModel.findOne({ slug });
     if (!poll) throw new NotFoundException('Poll not found');
 
+    if (poll.status === 'active') {
+      throw new BadRequestException(
+        'Cannot update a poll while it is active — end or reset it first',
+      );
+    }
+
+    if (dto.question !== undefined) poll.question = dto.question;
+    if (dto.durationSec !== undefined) poll.durationSec = dto.durationSec;
+
+    await poll.save();
+
+    const view = await this.toPublicView(poll);
+    this.events.emitReset({ slug: view.slug, view });
+    return view;
+  }
+
+  async startPoll(
+    slug: string,
+    overrideSec?: number,
+  ): Promise<PollPublicView> {
+    const poll = await this.pollModel.findOne({ slug });
+    if (!poll) throw new NotFoundException('Poll not found');
+
+    if (poll.status === 'active') {
+      // Already active — extend or leave. We'll extend if override provided.
+      if (overrideSec) {
+        const now = new Date();
+        poll.durationSec = overrideSec;
+        poll.startedAt = now;
+        poll.endsAt = new Date(now.getTime() + overrideSec * 1000);
+        await poll.save();
+        const view = await this.toPublicView(poll);
+        this.events.emitStarted({ slug: view.slug, view });
+        this.events.emitUpdated({ slug: view.slug, view });
+        return view;
+      }
+      return this.toPublicView(poll);
+    }
+
+    const duration = overrideSec ?? poll.durationSec;
     const now = new Date();
-    const endsAt = new Date(now.getTime() + poll.durationSec * 1000);
 
     poll.status = 'active';
     poll.startedAt = now;
-    poll.endsAt = endsAt;
+    poll.endsAt = new Date(now.getTime() + duration * 1000);
+    if (overrideSec) poll.durationSec = overrideSec;
+
     await poll.save();
 
     const view = await this.toPublicView(poll);
     this.events.emitStarted({ slug: view.slug, view });
-    this.events.emitUpdated({ slug: view.slug, view }); // extra safety
+    this.events.emitUpdated({ slug: view.slug, view });
     return view;
   }
 
@@ -149,10 +214,7 @@ export class PollsService {
     }
 
     const view = await this.toPublicView(poll);
-
-    // ⭐ Real-time: broadcast updated counts to everyone in the room
     this.events.emitUpdated({ slug: view.slug, view });
-
     return { success: true, view };
   }
 
@@ -210,10 +272,6 @@ export class PollsService {
     return this.pollModel.findOne({ slug });
   }
 
-  /**
-   * Used by the scheduler to auto-close expired polls in bulk.
-   * Emits `poll.closed` events for each one it closes.
-   */
   async closeAllExpiredPolls(): Promise<number> {
     const now = new Date();
     const expired = await this.pollModel.find({
