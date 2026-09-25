@@ -1,4 +1,3 @@
-//src/attendance/registration-lookup.controller.ts
 import {
   Body,
   Controller,
@@ -13,7 +12,7 @@ import { AttendanceService } from './attendance.service';
 import { CreateAttendanceDto } from './dto/create-attendance.dto';
 
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
-
+import { Public } from '../common/decorators/public.decorator';
 
 @Controller('attendance')
 export class RegistrationLookupController {
@@ -22,6 +21,11 @@ export class RegistrationLookupController {
     private readonly attendanceService: AttendanceService,
   ) {}
 
+  /**
+   * Public:
+   * Participant registration ID lookup
+   */
+  @Public()
   @Get('registration/:registrationId')
   async findRegistration(
     @Param('registrationId') registrationId: string,
@@ -31,6 +35,21 @@ export class RegistrationLookupController {
     );
   }
 
+  /**
+   * Public:
+   * Check whether attendance is currently open
+   */
+  @Public()
+  @Get('status')
+  async getAttendanceStatus() {
+    return this.attendanceService.getAttendanceStatus();
+  }
+
+  /**
+   * Public:
+   * Submit attendance + feedback
+   */
+  @Public()
   @Post('submit')
   async submitAttendance(
     @Body() dto: CreateAttendanceDto,
@@ -38,21 +57,30 @@ export class RegistrationLookupController {
     return this.attendanceService.submitAttendance(dto);
   }
 
+  /**
+   * Admin only
+   */
   @UseGuards(JwtAuthGuard)
-    @Post('admin/open')
-    async openAttendance() {
-    return this.attendanceService.openAttendance();
-    }
-
-    @UseGuards(JwtAuthGuard)
-    @Post('admin/close')
-    async closeAttendance() {
-    return this.attendanceService.closeAttendance();
-    }
-
-    @UseGuards(JwtAuthGuard)
-    @Get('admin/stats')
-    async getStats() {
+  @Get('admin/stats')
+  async getStats() {
     return this.attendanceService.getStats();
-    }
+  }
+
+  /**
+   * Admin only
+   */
+  @UseGuards(JwtAuthGuard)
+  @Post('admin/open')
+  async openAttendance() {
+    return this.attendanceService.openAttendance();
+  }
+
+  /**
+   * Admin only
+   */
+  @UseGuards(JwtAuthGuard)
+  @Post('admin/close')
+  async closeAttendance() {
+    return this.attendanceService.closeAttendance();
+  }
 }
