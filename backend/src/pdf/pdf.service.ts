@@ -6,6 +6,8 @@ import {
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import puppeteer from 'puppeteer';
+import { writeFile } from 'fs/promises';
+
 
 @Injectable()
 export class PdfService {
@@ -154,8 +156,8 @@ export class PdfService {
         timeout: 60000,
       });
 
-      await page.evaluate(() => document.fonts.ready);
-
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+      
       const pdf = await page.pdf({
         printBackground: true,
         preferCSSPageSize: true,
@@ -168,7 +170,18 @@ export class PdfService {
         },
       });
 
-      return Buffer.from(pdf);
+      await page.goto(printUrl, {
+      waitUntil: 'domcontentloaded',
+      timeout: 60000,
+     });
+
+      await writeFile(
+        '/tmp/workshop-test.pdf',
+        Buffer.from(pdf),
+      );
+
+    return Buffer.from(pdf);
+
     } catch (error) {
       console.error(
         'Workshop PDF generation failed:',
