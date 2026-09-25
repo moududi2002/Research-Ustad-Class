@@ -31,7 +31,7 @@ export default function ClosingSlide({ slide }: Props) {
 
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL}/pdf/workshop-one`,
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/pdf/workshop-one`,
         {
           method: 'POST',
           headers: {
