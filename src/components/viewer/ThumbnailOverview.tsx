@@ -19,6 +19,7 @@ interface Props {
 const typeLabel: Record<Slide['type'], string> = {
   cover: 'Cover',
   break: 'Break',
+'speaker-profile':'Speaker Profile',
   poll: 'Poll',
   'poll-live': 'Live Poll',
   flow: 'Flow',

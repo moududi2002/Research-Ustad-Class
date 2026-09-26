@@ -8,6 +8,7 @@
 
 export type Slide =
   | CoverSlide
+  | SpeakerProfileSlide
   | BreakSlide
   | PollSlide
   | PollLiveSlide     
@@ -402,4 +403,27 @@ export interface PromotionSlide {
   discountCode: string;
   discountPercent: number;
   discountCondition: string;
+}
+
+export interface SpeakerProfile {
+  name: string;
+  designation: string;
+  image: string;
+
+  education: string[];
+  profession: string[];
+  experience: string[];
+  impact: string[];
+
+  links: {
+    label: string;
+    url: string;
+  }[];
+}
+
+export interface SpeakerProfileSlide {
+  id: number;
+  type: 'speaker-profile';
+  title: string;
+  speaker: SpeakerProfile;
 }

@@ -25,6 +25,7 @@ import ClosingSlide from '@/components/slides/ClosingSlide';
 
 import BreakSlide from '@/components/slides/BreakSlide';
 import PromotionSlide from '@/components/slides/PromotionSlide';
+import SpeakerSlide from '@/components/slides/SpeakerSlide';
 
 
 interface Props {
@@ -35,6 +36,9 @@ export default function PrintSlideRenderer({ slide }: Props) {
   switch (slide.type) {
     case 'cover':
       return <CoverSlide slide={slide} />;
+
+    case 'speaker-profile':
+      return <SpeakerSlide slide={slide} />;
 
     case 'poll':
       return <PollSlide slide={slide} />;

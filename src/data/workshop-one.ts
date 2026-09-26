@@ -35,12 +35,65 @@ export const workshopOneSlides: Slide[] = [
     duration: '60 Minutes',
   },
 
-
+  
   /* --------------------------------------------------------- */
-  /* Slide 2 — Ice Breaking (LIVE POLL)                        */
+  /* Slide 2 — speaker indroductoon                            */
   /* --------------------------------------------------------- */
   {
-    id: 2,
+  id: 'slide-02',
+  type: 'speaker-profile',
+  title: 'Meet Your Speaker',
+  speaker: {
+    name: 'Md. Abul Ala Moududi',
+    designation: 'Executive Director, Research Ustad',
+    image: '/images/speakers/moududi.jpg',
+
+    education: [
+      'B.Sc. in Computer Science & Engineering',
+      'National Institute of Textile Engineering & Research (University of Dhaka)',
+    ],
+
+    profession: [
+      'Executive Director, Research Ustad',
+      'Full Stack Developer',
+      'Research Mentor',
+    ],
+
+    experience: [
+      'Academic Profile Building',
+      'Higher Study Mentorship',
+      'Research Training',
+    ],
+
+    impact: [
+      'IEEE Indexed Research Publication',
+      'Brain Tumor MRI Research',
+      'Federated TinyML BCI Research',
+    ],
+
+    links: [
+      {
+        label: 'LinkedIn',
+        url: 'https://linkedin.com/in/abul-ala-moududi',
+      },
+      {
+        label: 'Portfolio',
+        url: 'https://moududi.researchustad.org',
+      },
+      {
+        label: 'Research Ustad',
+        url: 'https://researchustad.org',
+      },
+    ],
+  },
+},
+
+
+  /* --------------------------------------------------------- */
+  /* Slide 3 — Ice Breaking (LIVE POLL)                        */
+  /* --------------------------------------------------------- */
+  {
+    id: 3,
     type: 'poll-live',
     title: 'Ice Breaking',
     pollSlug: 'ice-breaker-1',
@@ -59,10 +112,10 @@ export const workshopOneSlides: Slide[] = [
 
 
   /* --------------------------------------------------------- */
-  /* Slide 3 — What is Research?                               */
+  /* Slide 4 — What is Research?                               */
   /* --------------------------------------------------------- */
   {
-    id: 3,
+    id: 4,
     type: 'flow',
     title: 'What is Research?',
     definition:
@@ -73,10 +126,10 @@ export const workshopOneSlides: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 4 — Why Research Matters                            */
+  /* Slide 5 — Why Research Matters                            */
   /* --------------------------------------------------------- */
   {
-    id: 4,
+    id: 5,
     type: 'checklist',
     title: 'Why Research Matters',
     intro: 'Research is the engine behind every meaningful advance we use today.',
@@ -92,10 +145,10 @@ export const workshopOneSlides: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 5 — Research Around Us                              */
+  /* Slide 6 — Research Around Us                              */
   /* --------------------------------------------------------- */
   {
-    id: 5,
+    id: 6,
     type: 'image-cards',
     title: 'Research Around Us',
     subtitle: 'Five everyday technologies that exist because of decades of research.',
@@ -129,10 +182,10 @@ export const workshopOneSlides: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 6 — Research vs Normal Learning                     */
+  /* Slide 7 — Research vs Normal Learning                     */
   /* --------------------------------------------------------- */
   {
-    id: 6,
+    id: 7,
     type: 'comparison-table',
     title: 'Research vs. Normal Learning',
     columns: ['Learning', 'Research'],
@@ -148,10 +201,10 @@ export const workshopOneSlides: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 7 — Research Cycle                                  */
+  /* Slide 8 — Research Cycle                                  */
   /* --------------------------------------------------------- */
   {
-    id: 7,
+    id: 8,
     type: 'cycle',
     title: 'The Research Cycle',
     subtitle: 'A repeatable loop — not a straight line.',
@@ -168,10 +221,10 @@ export const workshopOneSlides: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 8 — Research Fields                                 */
+  /* Slide 9 — Research Fields                                 */
   /* --------------------------------------------------------- */
   {
-    id: 8,
+    id: 9,
     type: 'mindmap',
     title: 'Research Fields',
     centre: 'Research',
@@ -188,10 +241,10 @@ export const workshopOneSlides: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 9 — Publication Ecosystem                           */
+  /* Slide 10 — Publication Ecosystem                           */
   /* --------------------------------------------------------- */
   {
-    id: 9,
+    id: 10,
     type: 'flow',
     title: 'The Publication Ecosystem',
     steps: [
@@ -206,10 +259,10 @@ export const workshopOneSlides: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 10 — Impact of Research (Chart)                     */
+  /* Slide 11 — Impact of Research (Chart)                     */
   /* --------------------------------------------------------- */
   {
-    id: 10,
+    id: 11,
     type: 'chart',
     chartType: 'bar',
     title: 'The Impact of Research',
@@ -226,10 +279,10 @@ export const workshopOneSlides: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 11 — Research & Higher Study                        */
+  /* Slide 12 — Research & Higher Study                        */
   /* --------------------------------------------------------- */
   {
-    id: 11,
+    id: 12,
     type: 'checklist',
     title: 'How Research Helps in Higher Study',
     intro: 'A strong research profile is one of the most transferable assets you can build.',
@@ -244,10 +297,10 @@ export const workshopOneSlides: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 12 — Scholarship Reality (Pie Chart)                */
+  /* Slide 13 — Scholarship Reality (Pie Chart)                */
   /* --------------------------------------------------------- */
   {
-    id: 12,
+    id: 13,
     type: 'chart',
     chartType: 'pie',
     title: 'Scholarship Reality — What Committees Actually Weigh',
@@ -265,10 +318,10 @@ export const workshopOneSlides: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 13 — Real Example (Student A vs Student B)          */
+  /* Slide 14 — Real Example (Student A vs Student B)          */
   /* --------------------------------------------------------- */
   {
-    id: 13,
+    id: 14,
     type: 'comparison',
     title: 'Real Example — The Two Applicants',
     subtitle:
@@ -297,10 +350,10 @@ export const workshopOneSlides: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 14 — Common Myths vs Reality                        */
+  /* Slide 15 — Common Myths vs Reality                        */
   /* --------------------------------------------------------- */
   {
-    id: 14,
+    id: 15,
     type: 'myth-reality',
     title: 'Common Myths About Research',
     myths: [
@@ -315,10 +368,10 @@ export const workshopOneSlides: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 15 — Key Takeaways                                  */
+  /* Slide 16 — Key Takeaways                                  */
   /* --------------------------------------------------------- */
   {
-    id: 15,
+    id: 16,
     type: 'checklist',
     title: 'Key Takeaways — Part 1',
     items: [
@@ -334,10 +387,10 @@ export const workshopOneSlides: Slide[] = [
 
 
  /* --------------------------------------------------------- */
-  /* Slide 16 — 10 Minutes Break                              */
+  /* Slide 17 — 10 Minutes Break                              */
   /* --------------------------------------------------------- */
   {
-    id: 16,
+    id: 17,
     type: 'break',
     title: '10 Minutes Break',
     subtitle: 'Pause. Refresh. Connect.',
@@ -376,10 +429,10 @@ export const workshopOneSlides: Slide[] = [
 export const workshopOneSlidesPart2: Slide[] = [
 
     /* --------------------------------------------------------- */
-  /* Slide 17 — Part 2 Cover                                   */
+  /* Slide 18 — Part 2 Cover                                   */
   /* --------------------------------------------------------- */
   {
-    id: 17,
+    id: 18,
     type: 'cover',
     title: 'Resource Independent Research Journey',
     subtitle: 'Workshop Part 2 — From Curiosity to Research',
@@ -392,10 +445,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 18 — The Problem                                    */
+  /* Slide 19 — The Problem                                    */
   /* --------------------------------------------------------- */
   {
-    id: 18,
+    id: 19,
     type: 'barrier',
     title: 'The Problem — Why Most People Never Start',
     intro:
@@ -413,10 +466,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 19 — The Truth                                      */
+  /* Slide 20 — The Truth                                      */
   /* --------------------------------------------------------- */
   {
-    id: 19,
+    id: 20,
     type: 'minimal-setup',
     title: 'The Truth About Starting',
     items: [
@@ -434,10 +487,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 20 — Research Resources (Free)                      */
+  /* Slide 21 — Research Resources (Free)                      */
   /* --------------------------------------------------------- */
   {
-    id: 20,
+    id: 21,
     type: 'logo-cards',
     title: 'Free Research Resources You Already Have Access To',
     subtitle: 'No subscription. No institutional login required for most.',
@@ -477,10 +530,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 21 — Learning Roadmap                               */
+  /* Slide 22 — Learning Roadmap                               */
   /* --------------------------------------------------------- */
   {
-    id: 21,
+    id: 22,
     type: 'timeline',
     title: 'Your Learning Roadmap',
     subtitle: 'A five-stage path from beginner to first publication.',
@@ -494,10 +547,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 22 — Paper Reading Strategy                         */
+  /* Slide 23 — Paper Reading Strategy                         */
   /* --------------------------------------------------------- */
   {
-    id: 22,
+    id: 23,
     type: 'numbered-list',
     title: 'How to Read a Research Paper',
     intro:
@@ -527,10 +580,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 23 — Free Datasets                                  */
+  /* Slide 24 — Free Datasets                                  */
   /* --------------------------------------------------------- */
   {
-    id: 23,
+    id: 24,
     type: 'logo-cards',
     title: 'Free Datasets You Can Start With Today',
     subtitle: 'Real datasets used in published research across ML, healthcare and engineering.',
@@ -566,10 +619,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 24 — Free Tools                                     */
+  /* Slide 25 — Free Tools                                     */
   /* --------------------------------------------------------- */
   {
-    id: 24,
+    id: 25,
     type: 'logo-cards',
     title: 'The Free Toolkit of a Modern Researcher',
     subtitle: 'Everything here is free, industry-standard and worth learning well.',
@@ -605,10 +658,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 25 — Research Workflow                              */
+  /* Slide 26 — Research Workflow                              */
   /* --------------------------------------------------------- */
   {
-    id: 25,
+    id: 26,
     type: 'flow',
     title: 'A Typical Research Workflow',
     steps: [
@@ -623,10 +676,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 26 — Common Mistakes                                */
+  /* Slide 27 — Common Mistakes                                */
   /* --------------------------------------------------------- */
   {
-    id: 26,
+    id: 27,
     type: 'warning-cards',
     title: 'Common Mistakes Beginners Make',
     cards: [
@@ -659,10 +712,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 27 — Building Research Profile                      */
+  /* Slide 28 — Building Research Profile                      */
   /* --------------------------------------------------------- */
   {
-    id: 27,
+    id: 28,
     type: 'ecosystem',
     title: 'Building a Visible Research Profile',
     subtitle:
@@ -679,10 +732,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 28 — First Publication Roadmap                      */
+  /* Slide 29 — First Publication Roadmap                      */
   /* --------------------------------------------------------- */
   {
-    id: 28,
+    id: 29,
     type: 'timeline',
     title: 'Your First Publication — A 5-Month Roadmap',
     subtitle: 'A realistic, part-time timeline for a beginner.',
@@ -696,10 +749,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 29 — Research Ustad Ecosystem                       */
+  /* Slide 30 — Research Ustad Ecosystem                       */
   /* --------------------------------------------------------- */
   {
-    id: 29,
+    id: 30,
     type: 'ecosystem',
     title: 'The Research Ustad Ecosystem',
     subtitle: 'A complete support system — from first lesson to first publication.',
@@ -715,10 +768,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 30 — Success Stories                                */
+  /* Slide 31 — Success Stories                                */
   /* --------------------------------------------------------- */
   {
-    id: 30,
+    id: 31,
     type: 'achievement-cards',
     title: 'Success Stories',
     subtitle:
@@ -748,10 +801,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 31 — Action Plan                                    */
+  /* Slide 32 — Action Plan                                    */
   /* --------------------------------------------------------- */
   {
-    id: 31,
+    id: 32,
     type: 'roadmap',
     title: 'Your Action Plan — Starting Today',
     items: [
@@ -765,10 +818,10 @@ export const workshopOneSlidesPart2: Slide[] = [
   },
 
   /* --------------------------------------------------------- */
-  /* Slide 32 — Thank You + Q&A                                */
+  /* Slide 33 — Thank You + Q&A                                */
   /* --------------------------------------------------------- */
   {
-    id: 32,
+    id: 33,
     type: 'closing',
     title: 'Thank You — Questions & Discussion',
     quote:
@@ -780,11 +833,11 @@ export const workshopOneSlidesPart2: Slide[] = [
     // qrImage: qr.png, // আপনি চাইলে পরে /qr.png দিতে পারবেন
   },
  /* --------------------------------------------------------- */
-  /* Slide 33 -- Promotion                                     */
+  /* Slide 34 -- Promotion                                     */
   /* --------------------------------------------------------- */
   
   {
-  id: 33,
+  id: 34,
   type: 'promotion',
   title: 'Stay Connected. Keep Researching.',
   subtitle:
