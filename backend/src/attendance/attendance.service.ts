@@ -66,7 +66,7 @@ export class AttendanceService {
    * Never trust participant-supplied name/email/phone.
    */
   const registration =
-    await this.registrationLookupService.findRegistration(
+      await this.registrationLookupService.findRegistrationInternal(
       registrationId,
     );
 
