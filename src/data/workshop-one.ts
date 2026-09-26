@@ -40,7 +40,7 @@ export const workshopOneSlides: Slide[] = [
   /* Slide 2 — speaker indroductoon                            */
   /* --------------------------------------------------------- */
   {
-  id: 'slide-02',
+  id: 2,
   type: 'speaker-profile',
   title: 'Meet Your Speaker',
   speaker: {
