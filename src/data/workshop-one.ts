@@ -46,7 +46,7 @@ export const workshopOneSlides: Slide[] = [
   speaker: {
     name: 'Md. Abul Ala Moududi',
     designation: 'Executive Director, Research Ustad',
-    image: '/images/speakers/moududi.jpg',
+    image: '/images/speakers/moududi.png',
 
     education: [
       'B.Sc. in Computer Science & Engineering',
