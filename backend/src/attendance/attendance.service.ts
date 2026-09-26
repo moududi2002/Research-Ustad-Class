@@ -13,6 +13,8 @@ import { AttendanceSettings } from './schemas/attendance-settings.schema';
 import { RegistrationLookupService } from './registration-lookup.service';
 import { CreateAttendanceDto } from './dto/create-attendance.dto';
 
+import { AttendanceGateway } from './attendance.gateway';
+
 @Injectable()
 export class AttendanceService {
   constructor(
@@ -23,6 +25,7 @@ export class AttendanceService {
     private readonly settingsModel: Model<AttendanceSettings>,
 
     private readonly registrationLookupService: RegistrationLookupService,
+    private readonly attendanceGateway: AttendanceGateway,
   ) {}
 
     async submitAttendance(
@@ -129,6 +132,8 @@ export class AttendanceService {
 
   await settings.save();
 
+  this.attendanceGateway.emitStatus(true);
+
   return {
     success: true,
     enabled: true,
@@ -141,6 +146,9 @@ async closeAttendance() {
   settings.attendanceEnabled = false;
 
   await settings.save();
+
+    this.attendanceGateway.emitStatus(false);
+
 
   return {
     success: true,

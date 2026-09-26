@@ -5,6 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { RegistrationLookupController } from './registration-lookup.controller';
 import { RegistrationLookupService } from './registration-lookup.service';
 import { AttendanceService } from './attendance.service';
+import { AttendanceGateway } from './attendance.gateway';
 
 import {
   AttendanceSettings,
@@ -34,6 +35,7 @@ import {
   providers: [ 
     RegistrationLookupService,
      AttendanceService,
+      AttendanceGateway,
     ],
 })
 export class AttendanceModule {}

@@ -19,6 +19,8 @@ import {
   FiXCircle,
 } from 'react-icons/fi';
 
+import { io } from 'socket.io-client';
+
 interface Registration {
   registrationId: string;
   fullName: string;
@@ -127,16 +129,24 @@ export default function AttendancePage() {
     }
   }, []);
 
+  
   useEffect(() => {
-    void checkStatus();
+  void checkStatus();
 
-    const interval = window.setInterval(() => {
-      void checkStatus();
-    }, 2000);
+  const socket = io(
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/attendance`,
+    {
+      transports: ['websocket'],
+    },
+  );
 
-    return () => {
-      window.clearInterval(interval);
-    };
+   socket.on('attendance-status', ({ enabled }) => {
+    setPageState(enabled ? 'open' : 'closed');
+  });
+
+  return () => {
+    socket.disconnect();
+  };
   }, [checkStatus]);
 
   async function findRegistration() {
