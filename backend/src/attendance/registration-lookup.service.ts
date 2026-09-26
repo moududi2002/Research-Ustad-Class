@@ -5,10 +5,10 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 
-import type { Pool } from 'mysql2/promise';
+import type { Pool, RowDataPacket  } from 'mysql2/promise';
 import { WORKSHOP_DB } from '../workshop-db/workshop-db.module';
 
-interface RegistrationRow {
+interface RegistrationRow extends RowDataPacket {
   registration_id: string;
   full_name: string;
   email: string;
@@ -87,7 +87,7 @@ export class RegistrationLookupService {
     );
   }
 
-  const [rows] = await this.db.execute<RegistrationRow[]>(
+  const [rows] = await this.db.execute<RegistrationRow []>(
     `
       SELECT
         registration_id,
