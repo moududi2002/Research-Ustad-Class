@@ -83,4 +83,10 @@ export class RegistrationLookupController {
   async closeAttendance() {
     return this.attendanceService.closeAttendance();
   }
+  
+  @UseGuards(JwtAuthGuard)
+  @Get('admin/list')
+  async getAllAttendance() {
+    return this.attendanceService.getAllAttendance();
+  }
 }

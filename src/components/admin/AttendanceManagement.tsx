@@ -12,6 +12,8 @@ import {
 import { useState } from 'react';
 import { useAdminAttendance } from '@/hooks/useAdminAttendance';
 
+import Link from 'next/link';
+
 const ATTENDANCE_URL =
   'https://class.researchustad.org/atendence';
 
@@ -179,6 +181,26 @@ export default function AttendanceManagement() {
           </button>
         )}
       </div>
+
+      {/* Attendance Actions */}
+      <div className="mt-4 flex flex-wrap gap-3">
+        <Link
+          href="/admin/attendance"
+          className="inline-flex items-center justify-center rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-medium text-foreground transition hover:bg-muted"
+        >
+          View Attendance
+        </Link>
+
+        <a
+          href="/atendence"
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center justify-center gap-2 rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-medium text-foreground transition hover:bg-muted"
+        >
+          Open Page
+          <FiExternalLink className="h-3.5 w-3.5" />
+        </a>
+        </div>
     </section>
   );
 }

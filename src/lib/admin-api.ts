@@ -248,3 +248,22 @@ export async function adminCloseAttendance(): Promise<{
     method: 'POST',
   });
 }
+
+export interface AttendanceRecord {
+  _id: string;
+  registrationId: string;
+  fullName: string;
+  email: string;
+  whatsapp: string;
+  feedback: string;
+  attended: boolean;
+  createdAt: string;
+}
+
+export async function adminGetAttendanceList(): Promise<
+  AttendanceRecord[]
+> {
+  return authFetch<AttendanceRecord[]>(
+    '/api/attendance/admin/list',
+  );
+}

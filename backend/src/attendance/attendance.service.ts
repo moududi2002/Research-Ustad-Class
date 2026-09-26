@@ -168,4 +168,11 @@ async getStats() {
   };
 }
 
+async getAllAttendance() {
+  return this.attendanceModel
+    .find()
+    .sort({ createdAt: -1 })
+    .lean();
+}
+
 }
