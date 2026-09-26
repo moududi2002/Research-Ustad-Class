@@ -132,7 +132,7 @@ export default function AttendancePage() {
 
     const interval = window.setInterval(() => {
       void checkStatus();
-    }, 10000);
+    }, 2000);
 
     return () => {
       window.clearInterval(interval);
