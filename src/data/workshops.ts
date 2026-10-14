@@ -14,6 +14,20 @@ export interface WorkshopCard {
 }
 
 export const workshops: WorkshopCard[] = [
+
+{
+  slug: 'introduction',
+  title: 'Introduction',
+  subtitle: 'Discover Research Ustad, our team, impact and success stories',
+  date: 'About Us',
+  duration: '5 Slides',
+  level: 'Introduction',
+  status: 'active',
+  badge: 'Start Here',
+  href: '/presentation/introduction',
+  accent: 'emerald',
+},
+
   {
     slug: 'workshop-one',
     title: 'Workshop One',
