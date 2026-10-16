@@ -7,7 +7,7 @@ import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
 import { ScheduleModule } from '@nestjs/schedule';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { APP_GUARD } from '@nestjs/core';
-import { SmsLog } from './sms/sms-log.entity';
+
 
 
 import configuration from '@/config/configuration';
@@ -71,7 +71,6 @@ import { SmsLog } from './sms/sms-log.entity';
 
     WorkshopDbModule,
     AttendanceModule,
-    SmsLog,
 
   ],
   providers: [
