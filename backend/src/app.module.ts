@@ -20,7 +20,7 @@ import { PdfModule } from '@/pdf/pdf.module';
 import { WorkshopDbModule } from './workshop-db/workshop-db.module';
 
 import { AttendanceModule } from './attendance/attendance.module';
-import { SmsLog } from './sms/sms-log.entity';
+
 
 @Module({
   imports: [
