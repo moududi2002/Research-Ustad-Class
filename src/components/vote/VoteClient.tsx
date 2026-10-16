@@ -91,9 +91,12 @@ export default function VoteClient({ slug, initialPoll = null }: Props) {
 
   const disabled = view.status !== 'active';
 
-  const handleSelect = (optionId: string) => {
+  const handleSelect = (
+    optionId: string,
+    customLabel?: string,
+  ) => {
     setPendingOptionId(optionId);
-    void vote(optionId).finally(() => setPendingOptionId(null));
+    void vote(optionId, customLabel).finally(() => setPendingOptionId(null));
   };
 
   return (

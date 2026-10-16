@@ -36,7 +36,7 @@ interface UsePollLiveResult {
   submitError: string | null;
 
   /** Actions */
-  vote: (optionId: string) => Promise<void>;
+  vote: (optionId: string, customLabel?: string) => Promise<void>;
   refresh: () => Promise<void>;
 }
 
@@ -197,7 +197,7 @@ export function usePollLive(slug: string): UsePollLiveResult {
   /* --------------------------------------------------------------- */
 
   const vote = useCallback(
-    async (optionId: string) => {
+    async (optionId: string, customLabel?: string) => {
       if (submitting) return;
       if (voted) {
         setSubmitError('You have already voted.');
@@ -208,16 +208,23 @@ export function usePollLive(slug: string): UsePollLiveResult {
       setSubmitError(null);
 
       try {
-        const result = await submitVote(
-          slug,
-          optionId,
-          clientTokenRef.current,
-        );
+       const result = await submitVote(
+        slug,
+        optionId,
+        clientTokenRef.current,
+        customLabel,
+      );
 
         if (result.ok) {
-          markVotedLocally(slug, optionId);
+          const savedOptionId = customLabel
+            ? result.view.options.find(
+                (option) => option.label === customLabel.trim(),
+              )?.id ?? optionId
+            : optionId;
+
+          markVotedLocally(slug, savedOptionId);
           setVoted(true);
-          setVotedOptionId(optionId);
+          setVotedOptionId(savedOptionId);
           setPoll(result.view);
           pollRef.current = result.view;
           return;

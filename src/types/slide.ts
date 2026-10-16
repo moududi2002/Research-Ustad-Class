@@ -11,7 +11,8 @@ export type Slide =
   | SpeakerProfileSlide
   | BreakSlide
   | PollSlide
-  | PollLiveSlide     
+  | PollLiveSlide  
+  | DepartmentPollSlide   
   | FlowSlide
   | ChecklistSlide
   | ImageCardsSlide
@@ -32,6 +33,7 @@ export type Slide =
   | RoadmapSlide
   | ClosingSlide
   | PromotionSlide;
+  
 
 /* ------------------------------------------------------------------ */
 /* Shared small types                                                  */
@@ -176,6 +178,7 @@ export interface MindmapSlide {
   centre: string;
   branches: MindmapBranch[];
   caption?: string;
+  circular?: boolean;
 }
 
 /* ------------------------------------------------------------------ */
@@ -427,4 +430,13 @@ export interface SpeakerProfileSlide {
   type: 'speaker-profile';
   title: string;
   speaker: SpeakerProfile;
+}
+
+export interface DepartmentPollSlide {
+  id: number;
+  type: 'department-poll';
+  title: string;
+  question: string;
+  pollSlug: string;
+  liveEnabled: boolean;
 }

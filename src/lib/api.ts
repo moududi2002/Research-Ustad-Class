@@ -52,7 +52,11 @@ export async function submitVote(
   slug: string,
   optionId: string,
   clientToken: string,
-): Promise<{ ok: true; view: PollPublicView } | { ok: false; error: string; alreadyVoted?: boolean }> {
+  customLabel?: string,
+): Promise<
+  | { ok: true; view: PollPublicView }
+  | { ok: false; error: string; alreadyVoted?: boolean }
+> {
   try {
     const res = await fetch(
       `${BASE}/api/polls/${encodeURIComponent(slug)}/vote`,
@@ -62,10 +66,13 @@ export async function submitVote(
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
-        body: JSON.stringify({ optionId, clientToken }),
+        body: JSON.stringify({
+          optionId,
+          clientToken,
+          ...(customLabel ? { customLabel } : {}),
+        }),
       },
     );
-
     const body = await res.json().catch(() => null);
 
     if (res.status === 201 || res.status === 200) {

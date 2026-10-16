@@ -360,23 +360,28 @@ export const workshopOneSlides: Slide[] = [
   /* --------------------------------------------------------- */
   /* Slide 13 — Scholarship Reality (Pie Chart)                */
   /* --------------------------------------------------------- */
-  {
-    id: 13,
-    type: 'chart',
-    chartType: 'pie',
-    title: 'Scholarship Reality — What Committees Actually Weigh',
-    subtitle: 'A typical weighting pattern across competitive international programs.',
-    data: [
-      { name: 'CGPA',                  value: 30 },
-      { name: 'Research Experience',   value: 25 },
-      { name: 'SOP',                   value: 15 },
-      { name: 'IELTS / TOEFL',         value: 15 },
-      { name: 'LOR',                   value: 15 },
-    ],
-    unit: '%',
-    footnote:
-      'Approximate pattern based on common admission guidelines. Actual weights vary by university and program.',
-  },
+  /* --------------------------------------------------------- */
+/* Slide 13 — Scholarship Reality                             */
+/* --------------------------------------------------------- */
+{
+  id: 13,
+  type: 'mindmap',
+  title: 'What Strengthens a Scholarship Application?',
+  centre: 'Scholarship Profile',
+  circular: true,
+  branches: [
+    { label: 'Academic Record', icon: '🎓' },
+    { label: 'Research Experience', icon: '🔬' },
+    { label: 'Statement of Purpose', icon: '📝' },
+    { label: 'English Proficiency', icon: '🌐' },
+    { label: 'Recommendation Letters', icon: '✉️' },
+    { label: 'Publications', icon: '📚' },
+    { label: 'Projects & Portfolio', icon: '💻' },
+    { label: 'Others & Many More...', icon: '＋' },
+  ],
+  caption:
+    'These are just a few examples. Requirements vary across universities and programs.',
+},
 
   /* --------------------------------------------------------- */
   /* Slide 14 — Real Example (Student A vs Student B)          */
@@ -450,7 +455,7 @@ export const workshopOneSlides: Slide[] = [
  /* --------------------------------------------------------- */
   /* Slide 17 — 10 Minutes Break                              */
   /* --------------------------------------------------------- */
-  {
+  /*{
     id: 17,
     type: 'break',
     title: '10 Minutes Break',
@@ -474,6 +479,16 @@ export const workshopOneSlides: Slide[] = [
       },
     ],
   },
+  */
+    {
+      id: 17,
+      type: 'department-poll',
+      title: 'Know Your Audience',
+      question: 'Which department are you from?',
+      pollSlug: 'department-poll-1',
+      liveEnabled: true,
+    },
+
 ];
 
 /* =========================================================
@@ -513,7 +528,7 @@ export const workshopOneSlidesPart2: Slide[] = [
     type: 'barrier',
     title: 'The Problem — Why Most People Never Start',
     intro:
-      'These are the most common excuses students give before abandoning research entirely.',
+      'These are the most common excuses students give before abandoning research entirely:',
     barriers: [
       'No mentor available',
       'No laboratory access',

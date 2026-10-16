@@ -22,6 +22,7 @@ const typeLabel: Record<Slide['type'], string> = {
 'speaker-profile':'Speaker Profile',
   poll: 'Poll',
   'poll-live': 'Live Poll',
+  'department-poll': 'Department Poll',
   flow: 'Flow',
   checklist: 'Checklist',
   'image-cards': 'Images',
@@ -93,7 +94,7 @@ export default function ThumbnailOverview({
               Overview
             </p>
             <h2 className="mt-0.5 font-serif text-lg font-medium text-foreground sm:text-xl">
-              {slides.length} slides in this workshop
+              {slides.filter((slide) => slide.type !== 'break').length} slides in this workshop
             </h2>
           </div>
 
@@ -111,7 +112,10 @@ export default function ThumbnailOverview({
       {/* Grid */}
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
         <ul className="grid gap-3 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-          {slides.map((slide, i) => {
+          {slides
+          .map((slide, i) => ({ slide, originalIndex: i }))
+          .filter(({ slide }) => slide.type !== 'break')
+          .map(({ slide, originalIndex: i }) => {
             const isCurrent = i === currentIndex;
             const title = slide.title;
 

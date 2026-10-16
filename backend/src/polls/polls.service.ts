@@ -194,24 +194,48 @@ export class PollsService {
       throw new ForbiddenException('Poll is not active');
     }
 
-    const validOption = poll.options.some((o) => o.id === dto.optionId);
-    if (!validOption) {
-      throw new BadRequestException('Invalid optionId');
-    }
+    const isCustom = dto.optionId === 'other';
+      let effectiveOptionId = dto.optionId;
+      let customLabel: string | null = null;
 
-    try {
-      await this.voteModel.create({
-        pollId: poll._id,
-        optionId: dto.optionId,
-        deviceHash,
-        clientToken: dto.clientToken ?? null,
-      });
-    } catch (err: any) {
-      if (err?.code === 11000) {
-        throw new ConflictException('You have already voted in this poll');
+      if (isCustom) {
+        customLabel = dto.customLabel?.trim().replace(/\s+/g, ' ') ?? '';
+
+        if (customLabel.length < 2 || customLabel.length > 100) {
+          throw new BadRequestException(
+            'Please enter a department name between 2 and 100 characters',
+          );
+        }
+
+        const slug = customLabel
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, '-')
+          .replace(/^-|-$/g, '')
+          .slice(0, 60);
+
+        effectiveOptionId = slug ? `custom-${slug}` : 'custom-other';
+      } else {
+        const validOption = poll.options.some((o) => o.id === dto.optionId);
+
+        if (!validOption) {
+          throw new BadRequestException('Invalid optionId');
+        }
       }
-      throw err;
-    }
+
+      try {
+        await this.voteModel.create({
+          pollId: poll._id,
+          optionId: effectiveOptionId,
+          customLabel,
+          deviceHash,
+          clientToken: dto.clientToken ?? null,
+        });
+      } catch (err: any) {
+        if (err?.code === 11000) {
+          throw new ConflictException('You have already voted in this poll');
+        }
+        throw err;
+      }
 
     const view = await this.toPublicView(poll);
     this.events.emitUpdated({ slug: view.slug, view });
@@ -247,6 +271,22 @@ export class PollsService {
       { $group: { _id: '$optionId', count: { $sum: 1 } } },
     ]);
 
+    const customVotes = await this.voteModel
+      .find({
+        pollId: poll._id,
+        customLabel: { $ne: null },
+      })
+      .select('optionId customLabel')
+      .lean();
+
+    const customOptions = new Map<string, string>();
+
+    for (const vote of customVotes) {
+      if (vote.optionId && vote.customLabel) {
+        customOptions.set(vote.optionId, vote.customLabel);
+      }
+    }
+
     const counts: Record<string, number> = {};
     for (const opt of poll.options) counts[opt.id] = 0;
     for (const row of voteAgg) counts[row._id] = row.count;
@@ -258,7 +298,10 @@ export class PollsService {
       slug: poll.slug,
       workshopId: poll.workshopId,
       question: poll.question,
-      options: poll.options.map((o) => ({ id: o.id, label: o.label })),
+      options: [
+        ...poll.options.map((o) => ({ id: o.id, label: o.label })),
+        ...Array.from(customOptions, ([id, label]) => ({ id, label })),
+        ],
       status: poll.status,
       durationSec: poll.durationSec,
       startedAt: poll.startedAt ? poll.startedAt.toISOString() : null,

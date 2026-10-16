@@ -20,6 +20,8 @@ export class Vote {
   /** Optional client-generated UUID stored in localStorage (extra safety) */
   @Prop({ type: String, default: null })
   clientToken!: string | null;
+  @Prop({ type: String, default: null })
+  customLabel!: string | null;
 }
 
 export const VoteSchema = SchemaFactory.createForClass(Vote);

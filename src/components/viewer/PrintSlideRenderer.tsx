@@ -113,6 +113,9 @@ export default function PrintSlideRenderer({ slide }: Props) {
     case 'poll-live':
       return null;
 
+    case 'department-poll':
+      return null;
+
     default: {
       const _exhaustive: never = slide;
       void _exhaustive;

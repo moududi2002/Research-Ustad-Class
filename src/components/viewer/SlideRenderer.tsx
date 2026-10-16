@@ -23,6 +23,7 @@ import AchievementCardsSlide from '@/components/slides/AchievementCardsSlide';
 import RoadmapSlide from '@/components/slides/RoadmapSlide';
 import ClosingSlide from '@/components/slides/ClosingSlide';
 import PollLiveSlide from '@/components/slides/PollLiveSlide';
+import DepartmentPollSlide from '@/components/slides/DepartmentPollSlide';
 
 import BreakSlide from '@/components/slides/BreakSlide';
 
@@ -46,6 +47,8 @@ export default function SlideRenderer({ slide }: Props) {
       return <PollSlide slide={slide} />;
     case 'poll-live':
     return <PollLiveSlide slide={slide} />; 
+    case 'department-poll':
+      return <DepartmentPollSlide slide={slide} />;
     case 'flow':
       return <FlowSlide slide={slide} />;
     case 'checklist':
