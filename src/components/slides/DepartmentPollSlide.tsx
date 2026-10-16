@@ -33,12 +33,14 @@ export default function DepartmentPollSlide({ slide }: Props) {
     slide.pollSlug,
     slide.liveEnabled,
   );
-
-  const totalVotes = poll?.totalVotes ?? 0;
-  const options = (poll?.options ?? []).filter(
-  (option) => option.id !== 'other',
-  );
   const counts = poll?.counts ?? {};
+  const options = (poll?.options ?? []).filter(
+    (option) =>
+      option.id !== 'other' &&
+      (counts[option.id] ?? 0) > 0,
+  );
+  const totalVotes = poll?.totalVotes ?? 0;
+  
   const voteUrl = resolveVoteUrl(slide.pollSlug);
 
   const hasVotes = totalVotes > 0;
