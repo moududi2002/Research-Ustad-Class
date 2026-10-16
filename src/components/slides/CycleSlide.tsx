@@ -14,7 +14,7 @@ export default function CycleSlide({ slide }: Props) {
   const count = slide.steps.length;
 
   /* Trigonometry — place steps evenly around a circle */
-  const radius = 38; // percent of container radius
+  const radius = 46; // percent of container radius
   const center = 50;
 
   return (
@@ -35,15 +35,73 @@ export default function CycleSlide({ slide }: Props) {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
-              className="absolute inset-0 rounded-full border-2 border-dashed border-border"
+              className="absolute -inset-11 rounded-full border-2 border-dashed border-border"
             />
+
+            {/* Connection lines */}
+            <svg
+              className="pointer-events-none absolute inset-0 h-full w-full"
+              viewBox="0 0 100 100"
+              preserveAspectRatio="none"
+            >
+              {/* Straight lines: Center to each step */}
+              {slide.steps.map((step, i) => {
+                const angle = (i / count) * 2 * Math.PI - Math.PI / 2;
+                const x = center + radius * Math.cos(angle);
+                const y = center + radius * Math.sin(angle);
+
+                return (
+                  <line
+                    key={`line-${i}`}
+                    x1={center}
+                    y1={center}
+                    x2={x}
+                    y2={y}
+                    stroke="currentColor"
+                    strokeOpacity="0.5"
+                    strokeWidth="0.56"
+                  />
+                );
+              })}
+
+              {/* Curved lines: Each step to the next step */}
+              {slide.steps.map((step, i) => {
+                const angle1 = (i / count) * 2 * Math.PI - Math.PI / 2;
+                const angle2 =
+                  ((i + 1) / count) * 2 * Math.PI - Math.PI / 2;
+
+                const x1 = center + radius * Math.cos(angle1);
+                const y1 = center + radius * Math.sin(angle1);
+
+                const x2 = center + radius * Math.cos(angle2);
+                const y2 = center + radius * Math.sin(angle2);
+
+                // Control point: inward curve
+                const midX = (x1 + x2) / 2;
+                const midY = (y1 + y2) / 2;
+
+                const controlX = center + (midX - center) * 1;
+                const controlY = center + (midY - center) * 1;
+
+                return (
+                  <path
+                    key={`curve-${i}`}
+                    d={`M ${x1} ${y1} Q ${controlX} ${controlY} ${x2} ${y2}`}
+                    fill="none"
+                    stroke="#12866d"
+                    strokeWidth="0.6"
+                    strokeLinecap="round"
+                  />
+                );
+              })}
+            </svg>
 
             {/* Centre */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-accent text-center text-xs font-semibold uppercase tracking-[0.14em] text-white shadow-md sm:h-28 sm:w-28 sm:text-sm"
+              className="absolute z-10 left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-accent text-center text-xs font-semibold uppercase tracking-[0.14em] text-white shadow-md sm:h-28 sm:w-28 sm:text-sm"
             >
               Research
             </motion.div>
@@ -67,9 +125,9 @@ export default function CycleSlide({ slide }: Props) {
                     left: `${x}%`,
                     top: `${y}%`,
                   }}
-                  className="absolute flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-surface px-2 text-center text-[11px] font-medium leading-tight text-foreground shadow-sm sm:h-20 sm:w-20 sm:text-xs"
+                  className="absolute z-10 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-surface px-2 text-center text-xs font-medium leading-tight text-foreground shadow-sm sm:h-28 sm:w-28 sm:text-sm"
                 >
-                  <span className="line-clamp-2">{step}</span>
+                  <span className="line-clamp-2 whitespace-pre-line">{step}</span>
                 </motion.div>
               );
             })}
@@ -84,7 +142,7 @@ export default function CycleSlide({ slide }: Props) {
               duration: 0.5,
               delay: 0.35 + count * 0.08 + 0.2,
             }}
-            className="mx-auto mt-10 max-w-2xl text-center text-sm italic leading-relaxed text-foreground-subtle"
+            className="mx-auto mt-15 max-w-2xl text-center text-sm italic leading-relaxed text-foreground-subtle"
           >
             {slide.caption}
           </motion.p>

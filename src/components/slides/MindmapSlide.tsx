@@ -6,11 +6,14 @@ import type { MindmapSlide as MindmapSlideType } from '@/types/slide';
 import SlideShell from './_shared/SlideShell';
 import SlideHeading from './_shared/SlideHeading';
 
+
+
 interface Props {
   slide: MindmapSlideType;
 }
 
 export default function MindmapSlide({ slide }: Props) {
+  const count = slide.branches.length;
   return (
     <SlideShell>
       <div className="w-full">
@@ -56,6 +59,20 @@ export default function MindmapSlide({ slide }: Props) {
             </motion.div>
           ))}
         </div>
+
+        {slide.caption && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 0.5,
+              delay: 0.35 + count * 0.08 + 0.2,
+            }}
+            className="mx-auto mt-15 max-w-2xl text-center text-base font-semibold italic  leading-relaxed text-foreground-subtle"
+          >
+            {slide.caption}
+          </motion.p>
+        )}
       </div>
     </SlideShell>
   );

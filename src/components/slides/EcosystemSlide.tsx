@@ -42,19 +42,24 @@ export default function EcosystemSlide({ slide }: Props) {
         />
 
         {/* Nodes */}
-        <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {/* Nodes */}
+        <div className="mt-4 grid grid-cols-5 gap-2">
           {slide.nodes.map((node, i) => (
             <motion.div
               key={node}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.5 + i * 0.07 }}
-              className="flex items-center justify-center rounded-2xl border border-border bg-surface px-5 py-4 text-center font-serif text-sm font-medium text-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:border-accent/50 sm:text-base"
+              className="flex min-w-0 flex-col items-center justify-center rounded-2xl border border-border bg-surface px-1 py-4 text-center font-serif text-sm font-medium leading-tight text-foreground shadow-sm"
             >
-              {node}
+              {node.split(/\s+/).map((word, index) => (
+                <span key={index} className="block">
+                  {word}
+                </span>
+              ))}
             </motion.div>
           ))}
-        </div>
+        </div>         
       </div>
     </SlideShell>
   );

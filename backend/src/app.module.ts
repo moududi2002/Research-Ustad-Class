@@ -7,6 +7,8 @@ import { ThrottlerModule, ThrottlerGuard } from '@nestjs/throttler';
 import { ScheduleModule } from '@nestjs/schedule';
 import { EventEmitterModule } from '@nestjs/event-emitter';
 import { APP_GUARD } from '@nestjs/core';
+import { SmsLog } from './sms/sms-log.entity';
+
 
 import configuration from '@/config/configuration';
 import { envValidationSchema } from '@/config/env.validation';
@@ -18,6 +20,7 @@ import { PdfModule } from '@/pdf/pdf.module';
 import { WorkshopDbModule } from './workshop-db/workshop-db.module';
 
 import { AttendanceModule } from './attendance/attendance.module';
+import { SmsLog } from './sms/sms-log.entity';
 
 @Module({
   imports: [
@@ -68,6 +71,8 @@ import { AttendanceModule } from './attendance/attendance.module';
 
     WorkshopDbModule,
     AttendanceModule,
+    SmsLog,
+
   ],
   providers: [
     {

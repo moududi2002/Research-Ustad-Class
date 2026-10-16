@@ -29,7 +29,7 @@ export default function FlowSlide({ slide }: Props) {
         )}
 
         {/* Flow steps */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+        <div className="mt-12 flex w-full items-stretch gap-2 flex-wrap items-center justify-center gap-3 sm:gap-4">
           {slide.steps.map((step, i) => {
             const isLast = i === slide.steps.length - 1;
             return (
@@ -38,9 +38,9 @@ export default function FlowSlide({ slide }: Props) {
                   initial={{ opacity: 0, scale: 0.85 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4, delay: 0.3 + i * 0.12 }}
-                  className="flex min-w-[120px] items-center justify-center rounded-2xl border border-border bg-surface px-5 py-4 text-center shadow-sm sm:min-w-[140px]"
+                  className="flex min-w-0 w-full items-center justify-center rounded-2xl border border-border bg-surface px-2 py-4 text-center shadow-sm"
                 >
-                  <span className="font-serif text-base font-medium text-foreground sm:text-lg">
+                  <span className="whitespace-pre-line font-serif text-base font-medium leading-tight text-foreground sm:text-lg">
                     {step}
                   </span>
                 </motion.div>

@@ -27,17 +27,17 @@ export const workshopOneSlides: Slide[] = [
     type: 'cover',
     title: 'Research: What, Why and Its Importance in Higher Study',
     subtitle: 'Workshop Part 1 — A 60-Minute Academic Session',
-    speaker: 'Anichur Rahman, Founder & CEO',
-    date: 'October 2026',
+    speaker: 'Md. Jahidul Islam, Advisor, Research Ustad',
+    date: '17 October 2026',
     background:
       'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1920&q=80',
     logo: '/RU_logo.png',
-    duration: '60 Minutes',
+    duration: '8:30 PM (BST)',
   },
 
   
   /* --------------------------------------------------------- */
-  /* Slide 2 — speaker indroductoon                            */
+  /* Slide 2 — speaker introduction                        */
   /* --------------------------------------------------------- */
   {
   id: 2,
@@ -134,11 +134,11 @@ export const workshopOneSlides: Slide[] = [
     title: 'Why Research Matters',
     intro: 'Research is the engine behind every meaningful advance we use today.',
     items: [
-      'Solves real-world problems with evidence',
-      'Enables informed, data-driven decisions',
-      'Drives innovation across every industry',
-      'Advances collective human knowledge',
-      'Builds critical thinking and intellectual independence',
+      'Solves real-world problems with evidence.',
+      'Enables informed, data-driven decisions.',
+      'Drives innovation across every industry.',
+      'Advances collective human knowledge.',
+      'Builds critical thinking and intellectual independence.',
     ],
     footnote:
       'From vaccine development to the smartphone in your pocket — every innovation began as a research question.',
@@ -237,7 +237,12 @@ export const workshopOneSlides: Slide[] = [
       { label: 'Natural Language Processing', icon: '💬' },
       { label: 'Data Science',            icon: '📊' },
       { label: 'Human–Computer Interaction', icon: '🧑‍💻' },
+      { label: 'Bioinformatics',          icon: '🧬' },
+      { label: 'And many others...',          icon: '꩜' },
+
     ],
+    caption:
+      'Research is a vast landscape — find a field that excites you and start exploring.',
   },
 
   /* --------------------------------------------------------- */
@@ -287,11 +292,11 @@ export const workshopOneSlides: Slide[] = [
     title: 'How Research Helps in Higher Study',
     intro: 'A strong research profile is one of the most transferable assets you can build.',
     items: [
-      'Strengthens MS admission applications',
-      'Essential for funded PhD positions',
-      'Improves scholarship competitiveness',
-      'Opens Research Assistant (RA) opportunities',
-      'Builds strong professor recommendations',
+      'Strengthens MS admission applications.',
+      'Essential for funded PhD positions.',
+      'Improves scholarship competitiveness.',
+      'Opens Research Assistant (RA) opportunities.',
+      'Builds strong professor recommendations.',
       'Signals intellectual maturity to selection committees',
     ],
   },
@@ -436,12 +441,12 @@ export const workshopOneSlidesPart2: Slide[] = [
     type: 'cover',
     title: 'Resource Independent Research Journey',
     subtitle: 'Workshop Part 2 — From Curiosity to Research',
-    speaker: 'Anichur Rahman, Founder & CEO',
-    date: 'October 2026',
+    speaker: 'Md. Jahidul Islam, Advisor, Research Ustad',
+    date: '17 October 2026',
     background:
       'https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832_1280.jpg',
     logo: '/RU_logo.png',
-    duration: '60 Minutes',
+    duration: '8:30 PM (BST)',
   },
 
   /* --------------------------------------------------------- */

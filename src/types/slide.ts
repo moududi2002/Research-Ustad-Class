@@ -175,6 +175,7 @@ export interface MindmapSlide {
   title: string;
   centre: string;
   branches: MindmapBranch[];
+  caption?: string;
 }
 
 /* ------------------------------------------------------------------ */
