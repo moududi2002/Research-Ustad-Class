@@ -39,7 +39,8 @@ export const workshopOneSlides: Slide[] = [
   /* --------------------------------------------------------- */
   /* Slide 2 — speaker introduction                        */
   /* --------------------------------------------------------- */
-  {
+/*
+    {
   id: 2,
   type: 'speaker-profile',
   title: 'Meet Your Speaker',
@@ -83,6 +84,61 @@ export const workshopOneSlides: Slide[] = [
       {
         label: 'Research Ustad',
         url: 'https://researchustad.org',
+      },
+    ],
+  },
+},
+*/
+
+{
+  id: 2,
+  type: 'speaker-profile',
+  title: 'Meet Your Advisor',
+  speaker: {
+    name: 'Md. Jahidul Islam',
+    designation: 'Advisor, Research Ustad | PhD Candidate in Applied Computing, Georgia Southern University, USA',
+
+    // Add the actual image path if available
+    image:'/images/speakers/jahidul-islam.png',
+
+    education: [
+      'PhD in Applied Computing, Georgia Southern University, USA (2026–Present)',
+      'M.Sc. in Computer Science & Engineering, Jagannath University (CGPA: 3.97)',
+      'B.Sc. in Computer Science & Engineering, Jagannath University (CGPA: 3.72)',
+    ],
+
+    profession: [
+      'PhD Candidate, Georgia Southern University, USA',
+      'Former Assistant Professor, Green University of Bangladesh (2022–2025)',
+      'Former Lecturer, Green University of Bangladesh (2017–2022)',
+      'Research Advisor, Research Ustad',
+    ],
+
+    experience: [
+      'Teaching Cryptography & Network Security, Operating Systems, and Computer Architecture',
+      'Research Mentorship and Academic Supervision',
+      'Cybersecurity, Blockchain, and Machine Learning Research',
+    ],
+
+    impact: [
+      '60+ Research Publications',
+      'IEEE, Elsevier, Springer, and Nature Portfolio Publications',
+      'Outstanding Research Award, Green University of Bangladesh (2022 & 2023)',
+      'Excellence Research Award, Green University of Bangladesh (2021)',
+    ],
+
+    links: [
+      {
+        label: 'LinkedIn',
+        url: 'https://www.linkedin.com/in/mdjahidul',
+      },
+      {
+        label: 'Google Scholar',
+        url: 'https://scholar.google.com/',
+      },
+      {
+        label: 'ResearchGate',
+        url: 'https://www.researchgate.net/',
       },
     ],
   },
@@ -380,11 +436,11 @@ export const workshopOneSlides: Slide[] = [
     type: 'checklist',
     title: 'Key Takeaways — Part 1',
     items: [
-      'Research is a learnable skill, not a talent',
-      'Start early — even a single project compounds over time',
-      'Build a visible research portfolio (Scholar, GitHub, ORCID)',
-      'Publications significantly strengthen higher-study applications',
-      'Consistency beats natural talent in the long run',
+      'Research is a learnable skill, not a talent.',
+      'Start early — even a single project compounds over time.',
+      'Build a visible research portfolio (Scholar, GitHub, ORCID, etc).',
+      'Publications significantly strengthen higher-study applications.',
+      'Consistency beats natural talent in the long run.',
     ],
     footnote:
       'Part 2 will show you exactly how to start — with zero lab, zero funding and only a laptop.',
@@ -478,7 +534,7 @@ export const workshopOneSlidesPart2: Slide[] = [
     type: 'minimal-setup',
     title: 'The Truth About Starting',
     items: [
-      'A laptop',
+      'A Laptop, Desktop or Related Device',
       'A stable internet connection',
       'Curiosity and consistency',
     ],
@@ -498,7 +554,7 @@ export const workshopOneSlidesPart2: Slide[] = [
     id: 21,
     type: 'logo-cards',
     title: 'Free Research Resources You Already Have Access To',
-    subtitle: 'No subscription. No institutional login required for most.',
+    subtitle: 'No subscription. No funding. No excuses.',
     cards: [
       {
         name: 'Google Scholar',
@@ -578,7 +634,7 @@ export const workshopOneSlidesPart2: Slide[] = [
         description: 'Only now dive into the technical details of how it was done.',
       },
       {
-        title: 'Related Work (optional)',
+        title: 'Related Work ',
         description: 'Useful when you are building a literature map for your own paper.',
       },
     ],
@@ -733,6 +789,9 @@ export const workshopOneSlidesPart2: Slide[] = [
       'GitHub',
       'LinkedIn',
       'Personal Website',
+      'Zenodo',
+      'Kaggle',
+      'etc.'
     ],
   },
 
@@ -813,8 +872,8 @@ export const workshopOneSlidesPart2: Slide[] = [
     type: 'roadmap',
     title: 'Your Action Plan — Starting Today',
     items: [
-      { when: 'Today',      action: 'Create a Google Scholar and ORCID profile' },
-      { when: 'This Week',  action: 'Read three papers from arXiv in your field' },
+      { when: 'Today',      action: 'Create a Google Scholar and/or ResearchGate profile' },
+      { when: 'This Week',  action: 'Read three papers from renowned journals in your field' },
       { when: 'This Month', action: 'Pick one dataset and start your first mini-project' },
       { when: 'Next Month', action: 'Document your work on GitHub and write a short report' },
     ],

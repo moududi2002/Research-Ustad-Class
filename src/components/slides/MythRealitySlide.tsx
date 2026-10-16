@@ -36,7 +36,7 @@ export default function MythRealitySlide({ slide }: Props) {
                   initial={{ opacity: 0, x: -8 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.35, delay: 0.2 + i * 0.08 }}
-                  className="flex items-start gap-3 rounded-xl border border-border bg-surface px-4 py-3 text-sm text-foreground-muted sm:text-base"
+                  className="flex items-start gap-3 rounded-xl border border-danger/20 bg-danger/5 px-4 py-3 text-sm text-foreground-muted sm:text-base"
                 >
                   <FiX className="mt-0.5 h-4 w-4 shrink-0 text-danger/70" />
                   <span className="line-through decoration-danger/40 decoration-1">

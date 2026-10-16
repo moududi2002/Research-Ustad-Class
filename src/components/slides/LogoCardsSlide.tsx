@@ -74,7 +74,19 @@ export default function LogoCardsSlide({ slide }: Props) {
             );
           })}
         </div>
-
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.4,
+              delay: 0.2 + slide.cards.length * 0.07,
+            }}
+            className="mt-5 rounded-2xl border border-accent/30 bg-accent/5 px-5 py-4 text-center"
+          >
+            <p className="font-serif text-base font-semibold text-foreground sm:text-lg">
+              And many more free resources
+            </p>
+          </motion.div>
         {slide.footnote && (
           <motion.p
             initial={{ opacity: 0 }}
