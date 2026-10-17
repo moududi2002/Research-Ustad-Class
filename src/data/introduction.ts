@@ -157,7 +157,7 @@ export const introductionSlides: Slide[] = [
       name: '🎓 Fellowship',
       achievement: 'Presidential Doctoral Research Fellow',
       detail:
-        'Georgia Southern University · 2026–2027',
+        'Georgia Southern University, USA · 2026–2027',
     },
     {
       name: '🥇 Research Award',

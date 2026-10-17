@@ -96,19 +96,19 @@ export const workshopOneSlides: Slide[] = [
   title: 'Meet Your Speaker',
   speaker: {
     name: 'Md. Jahidul Islam',
-    designation: 'Advisor, Research Ustad | PhD Candidate in Applied Computing, Georgia Southern University, USA',
+    designation: 'Advisor, Research Ustad | PhD Student in Applied Computing, Georgia Southern University, USA',
 
     // Add the actual image path if available
     image:'/images/speakers/jahidul-islam.png',
 
     education: [
       'PhD in Applied Computing, Georgia Southern University, USA (2026–Present)',
-      'M.Sc. in Computer Science & Engineering, Jagannath University (CGPA: 3.97)',
-      'B.Sc. in Computer Science & Engineering, Jagannath University (CGPA: 3.72)',
+      'M.Sc. in Computer Science & Engineering, Jagannath University ',
+      'B.Sc. in Computer Science & Engineering, Jagannath University ',
     ],
 
     profession: [
-      'PhD Candidate, Georgia Southern University, USA',
+      'PhD Student, Georgia Southern University, USA',
       'Former Assistant Professor, Green University of Bangladesh (2022–2025)',
       'Former Lecturer, Green University of Bangladesh (2017–2022)',
       'Research Advisor, Research Ustad',
