@@ -27,6 +27,9 @@ import BreakSlide from '@/components/slides/BreakSlide';
 import PromotionSlide from '@/components/slides/PromotionSlide';
 import SpeakerSlide from '@/components/slides/SpeakerSlide';
 
+import ResearchFeild from '@/components/slides/component-slides-ResearchFeild';
+import CEOProfileSlide from '@/components/slides/CEOProfileSlide';
+
 
 interface Props {
   slide: Slide;
@@ -115,6 +118,12 @@ export default function PrintSlideRenderer({ slide }: Props) {
 
     case 'department-poll':
       return null;
+
+    case 'research-fields':
+      return <ResearchFeild slide={slide} />;
+
+    case 'ceo-profile':
+      return <CEOProfileSlide slide={slide} />;
 
     default: {
       const _exhaustive: never = slide;

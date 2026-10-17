@@ -29,6 +29,10 @@ import BreakSlide from '@/components/slides/BreakSlide';
 
 import PromotionSlide from '@/components/slides/PromotionSlide';
 import SpeakerSlide from '@/components/slides/SpeakerSlide';
+import ResearchFeild from '@/components/slides/component-slides-ResearchFeild';
+import CEOProfileSlide from '@/components/slides/CEOProfileSlide';
+import SuccessStoryImageSlide from '@/components/slides/SuccessStoryImageSlide';
+import TeamOverviewSlide from '@/components/slides/TeamOverviewSlide';
 
 
 interface Props {
@@ -90,7 +94,18 @@ export default function SlideRenderer({ slide }: Props) {
 
     case 'promotion':
        return <PromotionSlide slide={slide} />;
+
     
+    case 'research-fields':
+      return <ResearchFeild slide={slide} />;
+
+    case 'ceo-profile':
+      return <CEOProfileSlide slide={slide} />;
+    case 'success-story-image':
+    return <SuccessStoryImageSlide slide={slide} />;
+
+    case 'team-overview':
+      return <TeamOverviewSlide slide={slide} />;
 
     /* ------- Safety fallback (should never happen with typed slides) ------- */
     default: {

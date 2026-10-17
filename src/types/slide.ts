@@ -19,6 +19,7 @@ export type Slide =
   | ComparisonTableSlide
   | CycleSlide
   | MindmapSlide
+  | ResearchFieldsSlide
   | ChartSlide
   | ComparisonSlide
   | MythRealitySlide
@@ -32,7 +33,11 @@ export type Slide =
   | AchievementCardsSlide
   | RoadmapSlide
   | ClosingSlide
+  | CEOProfileSlide
+  | SuccessStoryImageSlide
+  | TeamOverviewSlide
   | PromotionSlide;
+  
   
 
 /* ------------------------------------------------------------------ */
@@ -439,4 +444,55 @@ export interface DepartmentPollSlide {
   question: string;
   pollSlug: string;
   liveEnabled: boolean;
+}
+
+
+export interface ResearchFieldsSlide {
+  id: number;
+  type: 'research-fields';
+  title: string;
+  subtitle?: string;
+  fields: {
+    name: string;
+    category: string;
+    icon: string;
+    description: string;
+  }[];
+  caption?: string;
+}
+
+
+export interface CEOProfileSlide {
+  id: number;
+  type: 'ceo-profile';
+  title: string;
+  subtitle?: string;
+  image: string;
+  cards: {
+    name: string;
+    achievement: string;
+    detail?: string;
+  }[];
+  footnote?: string;
+}
+
+export interface SuccessStoryImageSlide {
+  id: number;
+  type: 'success-story-image';
+  title: string;
+  subtitle: string;
+  image: string;
+}
+
+export interface TeamOverviewSlide {
+  id: number;
+  type: 'team-overview';
+  title: string;
+  subtitle: string;
+  teamPageUrl: string;
+  roles: {
+    name: string;
+    count: string;
+  }[];
+  message: string;
 }

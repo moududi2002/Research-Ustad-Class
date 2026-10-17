@@ -43,6 +43,8 @@ const typeLabel: Record<Slide['type'], string> = {
   roadmap: 'Roadmap',
   closing: 'Closing',
   promotion: 'Promotion',
+  'research-fields': 'Research Fields',
+  'ceo-profile': 'CEO Profile',
 };
 
 export default function ThumbnailOverview({

@@ -23,55 +23,67 @@ export const introductionSlides: Slide[] = [
     duration: '5 Slides',
   },
 
-  {
-    id: 2,
-    type: 'checklist',
-    title: 'About Research Ustad',
-    intro:
-      'An Academic Research & Mentorship Community',
-    items: [
-      'A community dedicated to helping students and early-career researchers grow academically.',
-      'Research mentorship and academic profile development for stronger research portfolios.',
-      'Practical research training, from idea development and methodology to academic writing.',
-      'Guidance on research publication, scholarly communication and responsible research practices.',
-      'Preparation for higher studies, international opportunities and scholarship applications.',
-      'A collaborative environment connecting learners, researchers and mentors.',
-    ],
-    footnote:
-      'Our mission is to make research knowledge, mentorship and academic opportunities more accessible.',
-  },
+  
+{
+  id: 2,
+  type: 'achievement-cards',
+  title: 'About Research Ustad',
+  subtitle: 'An Academic Research & Mentorship Community',
+  cards: [
+    {
+      name: 'Research Mentorship',
+      achievement: 'Expert Guidance',
+      detail: 'Supporting students throughout their research journey.',
+    },
+    {
+      name: 'Research & Publications',
+      achievement: 'From Idea to Paper',
+      detail: 'Research design, methodology, implementation and publication.',
+    },
+    {
+      name: 'Academic Writing',
+      achievement: 'Write with Confidence',
+      detail: 'Academic writing, literature reviews, citations and manuscript preparation.',
+    },
+    {
+      name: 'Higher Study Guidance',
+      achievement: 'Global Opportunities',
+      detail: 'Academic profile development, scholarships and graduate applications.',
+    },
+    {
+      name: 'Workshops & Training',
+      achievement: 'Practical Learning',
+      detail: 'Hands-on sessions on research tools, methods and technology.',
+    },
+    {
+      name: 'Research Collaboration',
+      achievement: 'Growing Together',
+      detail: 'Connecting learners and researchers for collaborative projects.',
+    },
+  ],
+  footnote:
+    'Our mission is to make research knowledge, mentorship and academic opportunities more accessible.',
+},
+
 
   // Slide 2 — Meet Our Team
-  {
-    id: 3,
-    type: 'logo-cards',
-    title: 'Meet Our Team',
-    subtitle: 'The people behind our research community',
-    cards: [
-      {
-        name: '👤 [Team Member Name]',
-        description: '[Designation] · [Research expertise]',
-        url: 'https://researchustad.org/team-members',
-      },
-      {
-        name: '🎓 [Team Member Name]',
-        description: '[Designation] · [Academic background]',
-        url: 'https://researchustad.org/team-members',
-      },
-      {
-        name: '🔬 [Team Member Name]',
-        description: '[Designation] · [Research interests]',
-        url: 'https://researchustad.org/team-members',
-      },
-      {
-        name: '🤝 [Team Member Name]',
-        description: '[Designation] · [Area of contribution]',
-        url: 'https://researchustad.org/team-members',
-      },
-    ],
-    footnote:
-      'Replace these placeholders with actual team members, roles and profile links.',
-  },
+  
+{
+  id: 3,
+  type: 'team-overview',
+  title: 'Meet Our Team',
+  subtitle: 'Experienced minds. Collaborative research. Global perspectives.',
+  teamPageUrl: 'https://researchustad.org/team-members',
+  roles: [
+    { name: 'Team Lead', count: '09' },
+    { name: 'Advisor', count: '08' },
+    { name: 'Mentor', count: '15' },
+    { name: 'Research Associate', count: '10' },
+  ],
+  message:
+    'Our team brings together experienced researchers and academics with research and teaching experience in Bangladesh and abroad, working together to support the next generation of researchers.',
+},
+
 
   // Slide 3 — Our Impact
   {
@@ -82,122 +94,94 @@ export const introductionSlides: Slide[] = [
     cards: [
       {
         name: '🔬 Research',
-        achievement: '[Research Projects]',
+        achievement: '10+ Research Projects',
         detail: 'Ongoing research and scholarly collaboration',
       },
       {
         name: '📚 Publications',
-        achievement: '[Publication Count]',
+        achievement: '90+ Publications',
         detail: 'Research papers and publication support',
       },
       {
         name: '🎓 Mentorship',
-        achievement: '[Students Mentored]',
+        achievement: '50+ Students Mentored',
         detail: 'Research guidance and academic development',
       },
       {
         name: '🌍 Higher Study',
-        achievement: '[Scholarship Recipients]',
+        achievement: '5+ Scholarship Recipients',
         detail: 'International education and scholarship guidance',
       },
       {
         name: '🧑‍🏫 Training',
-        achievement: '[Workshops & Classes]',
+        achievement: '5+ Workshops & Classes',
         detail: 'Practical learning and research training',
       },
       {
         name: '🤝 Community',
-        achievement: '[Community Members]',
+        achievement: '150+ Community Members',
         detail: 'A collaborative academic network',
       },
     ],
     footnote:
-      'Replace all bracketed values with verified Research Ustad statistics.',
+      'Dare to Dream Big.',
   },
 
   // Slide 4 — CEO Profile
-  {
-    id: 5,
-    type: 'achievement-cards',
-    title: 'Meet Our Founder & CEO',
-    subtitle:
-      'Anichur Rahman · PhD Student in Applied Computing, Georgia Southern University',
-    cards: [
-      {
-        name: '📄 Publications',
-        achievement: '75+',
-        detail: 'Peer-reviewed publications',
-      },
-      {
-        name: '📈 Research Impact',
-        achievement: '4,490+ Citations',
-        detail: 'h-index: 32',
-      },
-      {
-        name: '🏆 Recognition',
-        achievement: 'Top 2% Scientist',
-        detail:
-          'Elsevier–Stanford rankings: 261,348 (2024) · 131,353 (2025) · 95,393 (2026)',
-      },
-      {
-        name: '🎓 Fellowship',
-        achievement: 'Presidential Doctoral Research Fellow',
-        detail: 'Georgia Southern University · 2026–2027',
-      },
-      {
-        name: '🥇 Research Award',
-        achievement: 'Averitt Award',
-        detail: 'Excellence in Graduate Research · 2026',
-      },
-      {
-        name: '🔐 Research Areas',
-        achievement: 'AI · Cybersecurity · Blockchain',
-        detail: 'Quantum sensing, smart healthcare and wearable intelligence',
-      },
-    ],
-    footnote:
-      'Also received the BTMA Gold Medal for Excellence in Research (2023–2024).',
-  },
+  
+{
+  id: 5,
+  type: 'ceo-profile',
+  title: 'Meet Your CEO',
+  subtitle:
+    'The vision and leadership behind Research Ustad',
+  image: '/images/anichur-rahman.png',
+  cards: [
+    {
+      name: '📄 Publications',
+      achievement: '75+',
+      detail: 'Peer-reviewed publications',
+    },
+    {
+      name: '📈 Research Impact',
+      achievement: '4,800+ Citations',
+      detail: 'h-index: 32',
+    },
+    {
+      name: '🏆 Recognition',
+      achievement: 'Top 2% Scientist',
+      detail:
+        'Elsevier–Stanford rankings: 261,348 (2024) · 131,353 (2025) · 95,393 (2026)',
+    },
+    {
+      name: '🎓 Fellowship',
+      achievement: 'Presidential Doctoral Research Fellow',
+      detail:
+        'Georgia Southern University · 2026–2027',
+    },
+    {
+      name: '🥇 Research Award',
+      achievement: 'Averitt Award',
+      detail: 'Excellence in Graduate Research · 2026',
+    },
+    {
+      name: '🔐 Research Areas',
+      achievement: 'AI · Cybersecurity · Blockchain',
+      detail:
+        'Quantum sensing, smart healthcare and wearable intelligence',
+    },
+  ],
+  footnote:
+    'Also received the BTMA Gold Medal for Excellence in Research (2023–2024).',
+},
+
 
   // Slide 5 — Student Success Story
   {
-    id: 6,
-    type: 'achievement-cards',
-    title: 'A Research Success Story',
-    subtitle: '[Student Name] · [University / Department]',
-    cards: [
-      {
-        name: '📄 Publications',
-        achievement: '[Total Publications]',
-        detail: '[Journal papers · Conference papers]',
-      },
-      {
-        name: '📈 Citations',
-        achievement: '[Total Citations]',
-        detail: 'h-index: [Value] · [Other research impact]',
-      },
-      {
-        name: '🎓 Scholarships',
-        achievement: '[Scholarship Name]',
-        detail: '[University · Country · Funding details]',
-      },
-      {
-        name: '🏅 Achievements',
-        achievement: '[Major Achievement]',
-        detail: '[Awards · Research recognition · Other outcomes]',
-      },
-      {
-        name: '🤝 Research Journey',
-        achievement: '[Research Ustad Contribution]',
-        detail: '[Mentorship · Training · Collaboration]',
-      },
-      {
-        name: '🌍 Next Milestone',
-        achievement: '[Current Position / Opportunity]',
-        detail: '[Future study, research or career outcome]',
-      },
-    ],
-    footnote:
-      'Replace with a real student story and verified achievements before presenting.',
-  },
+  id: 6,
+  type: 'success-story-image',
+  title: 'A Research Success Story',
+  subtitle: ' Tanjum An Tashrif· Ongoing MSc, Cyber Security, Military Institute of Science & Technology (MIST)',
+  image: '/images/success-story.png',
+},
 ];

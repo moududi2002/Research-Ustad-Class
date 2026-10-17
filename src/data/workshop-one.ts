@@ -93,7 +93,7 @@ export const workshopOneSlides: Slide[] = [
 {
   id: 2,
   type: 'speaker-profile',
-  title: 'Meet Your Advisor',
+  title: 'Meet Your Speaker',
   speaker: {
     name: 'Md. Jahidul Islam',
     designation: 'Advisor, Research Ustad | PhD Candidate in Applied Computing, Georgia Southern University, USA',
@@ -279,27 +279,106 @@ export const workshopOneSlides: Slide[] = [
   /* --------------------------------------------------------- */
   /* Slide 9 — Research Fields                                 */
   /* --------------------------------------------------------- */
+  
+  /* --------------------------------------------------------- */
+  /* Slide 9 — Research Fields                                 */
+  /* --------------------------------------------------------- */
   {
     id: 9,
-    type: 'mindmap',
-    title: 'Research Fields',
-    centre: 'Research',
-    branches: [
-      { label: 'AI / Machine Learning',   icon: '🤖' },
-      { label: 'Medical Imaging',         icon: '🩻' },
-      { label: 'Cybersecurity',           icon: '🔐' },
-      { label: 'Networking',              icon: '🌐' },
-      { label: 'Robotics',                icon: '🦾' },
-      { label: 'Natural Language Processing', icon: '💬' },
-      { label: 'Data Science',            icon: '📊' },
-      { label: 'Human–Computer Interaction', icon: '🧑‍💻' },
-      { label: 'Bioinformatics',          icon: '🧬' },
-      { label: 'And many others...',          icon: '꩜' },
-
+    type: 'research-fields',
+    title: 'Explore the World of Research',
+    subtitle:
+      'Research has no single boundary. Discover different disciplines, real-world challenges and emerging opportunities.',
+    fields: [
+      {
+        name: 'Artificial Intelligence',
+        category: 'Computing',
+        icon: '🤖',
+        description:
+          'Machine learning, deep learning, computer vision and intelligent systems.',
+      },
+      {
+        name: 'Medical & Health Research',
+        category: 'Healthcare',
+        icon: '🩺',
+        description:
+          'Medical imaging, disease prediction, digital health and clinical data analysis.',
+      },
+      {
+        name: 'Cybersecurity',
+        category: 'Computing',
+        icon: '🔐',
+        description:
+          'Privacy, cryptography, threat detection and secure digital infrastructure.',
+      },
+      {
+        name: 'Climate & Environment',
+        category: 'Environment',
+        icon: '🌍',
+        description:
+          'Climate change, biodiversity, pollution monitoring and sustainable solutions.',
+      },
+      {
+        name: 'Robotics & Automation',
+        category: 'Engineering',
+        icon: '🦾',
+        description:
+          'Autonomous robots, intelligent control, sensors and human–robot interaction.',
+      },
+      {
+        name: 'Agriculture & Food Science',
+        category: 'Agriculture',
+        icon: '🌱',
+        description:
+          'Smart farming, crop improvement, food security and precision agriculture.',
+      },
+      {
+        name: 'Social Sciences',
+        category: 'Society',
+        icon: '👥',
+        description:
+          'Human behaviour, communities, public policy and social development.',
+      },
+      {
+        name: 'Economics & Finance',
+        category: 'Business',
+        icon: '📈',
+        description:
+          'Economic development, financial systems, market behaviour and econometrics.',
+      },
+      {
+        name: 'Education Research',
+        category: 'Education',
+        icon: '🎓',
+        description:
+          'Learning science, teaching methods, educational technology and assessment.',
+      },
+      {
+        name: 'Bioinformatics & Genomics',
+        category: 'Life Sciences',
+        icon: '🧬',
+        description:
+          'Genetic data analysis, computational biology and molecular discovery.',
+      },
+      {
+        name: 'Energy & Materials',
+        category: 'Physical Sciences',
+        icon: '⚡',
+        description:
+          'Renewable energy, battery technology, advanced materials and energy efficiency.',
+      },
+      {
+        name: 'Human–Computer Interaction',
+        category: 'Computing',
+        icon: '💡',
+        description:
+          'User experience, accessibility, interaction design and human-centred computing.',
+      },
     ],
     caption:
-      'Research is a vast landscape — find a field that excites you and start exploring.',
+      'Research is a vast landscape — find a field that excites you and start exploring.\n You do not need to explore every field. Start with a problem that genuinely interests you.',
   },
+
 
   /* --------------------------------------------------------- */
   /* Slide 10 — Publication Ecosystem                           */
@@ -483,7 +562,7 @@ export const workshopOneSlides: Slide[] = [
     {
       id: 17,
       type: 'department-poll',
-      title: 'Know Your Audience',
+      title: 'A bit more about you',
       question: 'Which department are you from?',
       pollSlug: 'department-poll-1',
       liveEnabled: true,
