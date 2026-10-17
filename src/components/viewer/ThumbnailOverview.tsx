@@ -45,6 +45,8 @@ const typeLabel: Record<Slide['type'], string> = {
   promotion: 'Promotion',
   'research-fields': 'Research Fields',
   'ceo-profile': 'CEO Profile',
+  'team-overview' : 'Team Overview',
+  'success-story-image': 'Success Story',
 };
 
 export default function ThumbnailOverview({

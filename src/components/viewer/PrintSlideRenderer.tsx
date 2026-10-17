@@ -124,6 +124,10 @@ export default function PrintSlideRenderer({ slide }: Props) {
 
     case 'ceo-profile':
       return <CEOProfileSlide slide={slide} />;
+    case 'team-overview':
+      return null;
+    case 'success-story-image':
+      return null;
 
     default: {
       const _exhaustive: never = slide;
