@@ -51,7 +51,7 @@ export default function CEOProfileSlide({ slide }: Props) {
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 PhD Student in Applied Computing
                 <br />
-                Georgia Southern University
+                Georgia Southern University (USA)
               </p>
             </div>
 
